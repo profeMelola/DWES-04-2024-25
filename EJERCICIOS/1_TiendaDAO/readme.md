@@ -2,25 +2,8 @@
 
 ![Captura de pantalla de 2024-04-25 20-42-00](https://github.com/profeMelola/Programacion-08-2023-24/assets/91023374/aa73fee6-f328-4082-84f6-708f6929ad9e)
 
-# 1. Práctica guiada: primer programa JDBC
+# 1. Práctica guiada: tienda CRUD DATO
 
-Vamos a obtener el listado de todos los fabricantes.
-
-## Interfaz cliente (index.jsp)
-
-![image](https://github.com/profeMelola/Programacion-08-2023-24/assets/91023374/fbd696c8-78d3-4d16-92d0-fb2e122fde24)
-
-## Resultado obtenido
-
-![image](https://github.com/profeMelola/Programacion-08-2023-24/assets/91023374/9d6af45a-f960-4423-b07d-5368d066c8c7)
-
-
-# 2. Tienda V2: con interface Dao genérica
-
-Tiene la misma funcionalidad que la tienda v1 pero el código es diferente, usa la interface DAO genérica.
-
-
-# 3. Tienda CRUD DAO
 
 ![image](https://github.com/profeMelola/Programacion-08-2023-24/assets/91023374/79b85a89-84e3-4059-89af-7eac50fbb1c6)
 
