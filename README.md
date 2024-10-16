@@ -4,7 +4,7 @@
 
 *Fuente: https://medium.com/@xuanzou89/test3-b7be693cff18*
 
-![image](https://github.com/user-attachments/assets/beee5849-099c-4bc6-ab5e-14b7437052c4)
+<img src="https://github.com/user-attachments/assets/beee5849-099c-4bc6-ab5e-14b7437052c4" height="250px"/>
 
 ___
 
