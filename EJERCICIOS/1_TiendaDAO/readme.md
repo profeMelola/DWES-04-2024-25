@@ -19,14 +19,12 @@ Vamos a realizar las cuatro operaciones básicas contra una tabla usando la base
 ## SERVLETS
 Tendremos dos servlets:
 
-### SERVLET ENCARGADO DE LISTAR LOS PRODUCTOS
+### 1. SERVLET ENCARGADO DE LISTAR LOS PRODUCTOS
 
 ![image](https://github.com/user-attachments/assets/c021d86f-3b49-45cb-8422-126bb3f6fa37)
 
 
-### SERVLET ENCARGADO DE OPERACIONES DE MODIFICACIÓN (INSERT, UPDATE, DELETE)
-
-___
+### 2. SERVLET ENCARGADO DE OPERACIONES DE MODIFICACIÓN (INSERT, UPDATE, DELETE) DE PRODUCTOS
 
 #### Ejemplo de inserción:
 
@@ -34,7 +32,7 @@ ___
 
 ___
 
-Una vez realizada la inserción correctamente, aparecerá el listado de productos ordenados por código descendentemente:
+Una vez realizada la inserción correctamente, aparecerá el listado de productos ordenados por código descendentemente (ordenación a realizar en Java, no order by sql):
 
 ![image](https://github.com/user-attachments/assets/704e290d-917f-44ec-ae42-847be90ee3e3)
 
@@ -45,10 +43,14 @@ ___
 ![image](https://github.com/user-attachments/assets/8340c376-eb61-41c9-a0bb-b3598616cc28)
 
 
+___
+
 Ha desaparecido el producto con código 13:
 
 ![image](https://github.com/user-attachments/assets/a5c1c6ab-df40-4b99-9574-ca0435ef28bd)
 
+
+___
 
 #### Ejemplo de actualización:
 
