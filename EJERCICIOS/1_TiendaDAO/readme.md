@@ -23,10 +23,33 @@ ___
 
 ![image](https://github.com/user-attachments/assets/75f8fdea-692f-4f55-9f98-d4bb70962491)
 
+## CONFIGURACIÓN DE LA CONEXIÓN A H2
+
+### 1.Fichero **JDBC.properties** que está en webapp del proyecto:
+
+```
+# Propiedad de conexión a base de datos
+url=jdbc:h2:~/tienda;AUTO_SERVER=TRUE
+user=sa
+password=
+```
+Muy importante no olvidar indicar **AUTO_SERVER=TRUE** tanto en la url del fichero de propiedades como en la consola de H2:
+
+![error conexiones](https://github.com/user-attachments/assets/43a0bb8f-2a6c-4764-9acd-718b3f108893)
+
+#### 2. Indicar el driver de conexión adecuado
+
+En la clase **DBConnection** del paquete package es.daw.web.bd:
+
+```
+Class.forName("org.h2.Driver");
+```
 
 
-## SERVLETS
-Tendremos dos servlets:
+
+## SERVLETS (CONTROLLERS)
+
+Tendremos dos servlets o controladores:
 
 ### 1. SERVLET ENCARGADO DE LISTAR LOS PRODUCTOS
 
