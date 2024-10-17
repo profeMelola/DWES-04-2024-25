@@ -16,6 +16,13 @@ Vamos a realizar las cuatro operaciones básicas contra una tabla usando la base
 
 **[ D ]** **Delete:** borraremos un producto por id.
 
+
+Descarga el proyecto inicial. Observa los fuentes proporcionados:
+
+![image](https://github.com/user-attachments/assets/c6774ce2-3b0a-48d6-b471-dfedd7392e24)
+
+
+
 ## SERVLETS
 Tendremos dos servlets:
 
