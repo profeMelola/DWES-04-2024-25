@@ -33,7 +33,7 @@ url=jdbc:h2:~/tienda;AUTO_SERVER=TRUE
 user=sa
 password=
 ```
-Muy importante no olvidar indicar **AUTO_SERVER=TRUE** tanto en la url del fichero de propiedades como en la consola de H2:
+Muy importante no olvidar indicar **AUTO_SERVER=TRUE** tanto en la url del fichero de propiedades como en la consola de H2 para poder usar más de una conexión abierta:
 
 ![error conexiones](https://github.com/user-attachments/assets/43a0bb8f-2a6c-4764-9acd-718b3f108893)
 
