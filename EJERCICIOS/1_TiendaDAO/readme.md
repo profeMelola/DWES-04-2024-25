@@ -20,7 +20,8 @@ ___
 
 **Descarga el proyecto inicial. Observa los fuentes proporcionados:**
 
-![image](https://github.com/user-attachments/assets/c6774ce2-3b0a-48d6-b471-dfedd7392e24)
+
+![image](https://github.com/user-attachments/assets/75f8fdea-692f-4f55-9f98-d4bb70962491)
 
 
 
