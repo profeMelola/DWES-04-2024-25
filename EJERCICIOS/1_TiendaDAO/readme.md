@@ -70,6 +70,20 @@ Una vez realizada la inserción correctamente, aparecerá el listado de producto
 
 ___
 
+#### Problemas al insertar productos. Fallo codigo duplicado.
+
+El script de base de datos no ha creado el codigo como AUTO_INCREMENT.
+
+La solución es modificar la tabla. Ejecutar lo siguiente:
+
+```
+ALTER TABLE producto
+ALTER COLUMN codigo INT AUTO_INCREMENT;
+ALTER TABLE producto ALTER COLUMN codigo RESTART WITH 12;
+```
+
+
+
 #### Ejemplo de borrado:
 
 ![image](https://github.com/user-attachments/assets/8340c376-eb61-41c9-a0bb-b3598616cc28)
