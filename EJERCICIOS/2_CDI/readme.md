@@ -12,6 +12,6 @@ No vamos a modificar la funcionalidad, pero vamos a comprobar que ahorramos cód
 4. En nuestra aplicación, no tenemos el controlador o Servlet para actualizar el carro (forma parte de la práctica), pero si tuviéramos ActualizarCarroServlet, también usaríamos @Inject
 5. Modificamos la forma en leer de la Sesión el carro en carro.jsp 
 6. Es necesario crear un archivo de configuración llamado beans.xml con la etiqueta beans vacía en WEB-INF del proyecto. Es requisito.
-7. 
+   
 ![image](https://github.com/user-attachments/assets/483fcdf2-e322-40ac-b6e3-d9786df269a3)
 
