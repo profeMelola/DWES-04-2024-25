@@ -7,11 +7,42 @@ No vamos a modificar la funcionalidad, pero vamos a comprobar que ahorramos cód
 ## Vamos a modificar:
 
 1. Clase Carro (convertilo en un Bean @SessionScoped)
+
+```
+@SessionScoped
+
+@Named
+public class Carro implements Serializable{
+    private List<ItemCarro> items;
+    
+
+    public Carro() {
+        items = new ArrayList<>();
+    }
+....
+}
+```
+**@SessionScoped**
+
+Esta anotación indica que la clase Carro tiene un ciclo de vida relacionado con la sesión del usuario. 
+
+Esto significa que los datos de la instancia de Carro se mantendrán mientras dure la sesión de un usuario específico, y serán destruidos cuando la sesión termine. 
+
+Es útil en aplicaciones web donde se quiere mantener el estado del carrito de compras del usuario durante la navegación.
+
+**@Named**
+
+Esta anotación indica que la clase Carro puede ser utilizada en una vista, por ejemplo, en páginas JSF (JavaServer Faces) o tecnologías similares. 
+
+El objeto puede ser referenciado directamente desde el código de la interfaz (por ejemplo, en un archivo XHTML) usando su nombre. 
+
+Si no se especifica un nombre explícito, el nombre por defecto será el nombre de la clase con la primera letra en minúscula (carro en este caso).
+
 2. Listener (sessionCreated para no crear ni guardar en sesión el carro )
-3. AgregarCarroServlet (para @Inject el Carro). Modificaremos también el request, llamando directamente a carro.jsp
-4. En nuestra aplicación, no tenemos el controlador o Servlet para actualizar el carro (forma parte de la práctica), pero si tuviéramos ActualizarCarroServlet, también usaríamos @Inject
-5. Modificamos la forma en leer de la Sesión el carro en carro.jsp 
-6. Es necesario crear un archivo de configuración llamado beans.xml con la etiqueta beans vacía en WEB-INF del proyecto. Es requisito.
+4. AgregarCarroServlet (para @Inject el Carro). Modificaremos también el request, llamando directamente a carro.jsp
+5. En nuestra aplicación, no tenemos el controlador o Servlet para actualizar el carro (forma parte de la práctica), pero si tuviéramos ActualizarCarroServlet, también usaríamos @Inject
+6. Modificamos la forma en leer de la Sesión el carro en carro.jsp 
+7. Es necesario crear un archivo de configuración llamado beans.xml con la etiqueta beans vacía en WEB-INF del proyecto. Es requisito.
    
 ![image](https://github.com/user-attachments/assets/483fcdf2-e322-40ac-b6e3-d9786df269a3)
 
