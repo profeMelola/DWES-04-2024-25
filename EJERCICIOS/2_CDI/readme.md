@@ -192,6 +192,10 @@ Crea un archivo llamado carroJSF.xhtml con este contenido:
 
 ```
 
+![image](https://github.com/user-attachments/assets/7783ab9d-959a-486f-9e2b-09586592e152)
 
 
+**#{}:** Se utiliza para evaluar expresiones que pueden incluir métodos y propiedades de beans (Managed Beans) y permite la invocación de métodos. Esto se traduce en que puede ejecutar lógica del lado del servidor. Este tipo de expresión se usa cuando necesitas acceder a valores dinámicos o cuando necesitas realizar acciones que requieren evaluación en tiempo de ejecución.
+
+**${}:** Se utiliza para acceder a valores estáticos o expresiones que no requieren invocación de métodos. Es común en contextos donde solo necesitas obtener un valor sin necesidad de lógica adicional o invocaciones.
 
