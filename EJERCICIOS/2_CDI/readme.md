@@ -1,10 +1,94 @@
-# Práctica guiada para aprender a usar CDI
+# Práctica guiada para aprender a usar CDI y JSF
 
 Partimos del proyecto sin persistencia en base de datos del carro https://github.com/profeMelola/DWES-03-2024-25/tree/main/EJERCICIOS/Filter/solucion_listener_filtro
 
 No vamos a modificar la funcionalidad, pero vamos a comprobar que ahorramos código y queda mucho más limpio, modular y reutilizable con CDI.
 
-## Vamos a modificar:
+Para manejar la vista, JSF es un framework orientado a componentes que se integra muy bien con CDI. 
+
+JSF es parte de Jakarta EE y ofrece una forma limpia de gestionar la lógica de la interfaz de usuario (UI) usando CDI para manejar los beans que interactúan con la vista.
+
+JSF usa facelets (.xhtml) en lugar de JSP, lo que te permite hacer inyecciones de dependencias directamente en la vista.
+
+Una alternativa más moderna y con una separación más clara de la lógica y la presentación, es **Thymeleaf** es otra opción para la vista. Aunque es más común en aplicaciones Spring, puede usarse con Jakarta EE.
+
+## CONFIGURACIÓN DEL ENTORNO
+
+### Extensión en Visual Studio Code
+
+![image](https://github.com/user-attachments/assets/40ebfed7-e713-47ff-ae6c-5ba45260f037)
+
+### Dependencias en pom.xml
+
+Si ya estás usando el **artefacto jakarta.jakartaee-web-api**, que abarca todas las especificaciones web de Jakarta EE (incluyendo JSF), **NO necesitas agregar una dependencia adicional** específicamente para JSF ni CDI, ya que está incluida.
+
+Además, usamos Wildfly que tiene implementado las especificaciones pertinentes.
+
+Si tuviéramos otro entorno, con otro servidor de aplicaciones, deberíamos revisar las dependencias necesarias a añadir. Similar a esto:
+
+```
+<dependency>
+    <groupId>jakarta.faces</groupId>
+    <artifactId>jakarta.faces-api</artifactId>
+    <version>2.3.10</version> <!-- o la versión que necesites -->
+    <scope>provided</scope>
+</dependency>
+<dependency>
+    <groupId>org.glassfish</groupId>
+    <artifactId>jakarta.faces</artifactId>
+    <version>2.3.10</version> <!-- o la versión que necesites -->
+</dependency>
+<dependency>
+    <groupId>jakarta.enterprise</groupId>
+    <artifactId>jakarta.enterprise.cdi-api</artifactId>
+    <version>3.0.0</version> <!-- o la versión que necesites -->
+    <scope>provided</scope>
+</dependency>
+```
+
+## Archivos de configuración XML en webapp/WEB-INF
+
+### Añadir en web.xml
+
+```
+<servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.xhtml</url-pattern> <!-- o cualquier patrón que uses -->
+</servlet-mapping>
+
+```
+
+### Nuevo archivo faces-config.xml
+
+Con esta configuración de espacios de nombres:
+
+```
+<faces-config
+    xmlns="https://jakarta.ee/xml/ns/jakartaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+    https://jakarta.ee/xml/ns/jakartaee/web-facesconfig_4_0.xsd"
+    version="4.0">
+</faces-config>
+
+```
+
+### Nuevo archivo beans.xml
+
+Por ahora solo con esto:
+
+```
+<beans>
+</beans>
+```
+
+## PASOS:
 
 ### 1. Clase Carro (convertilo en un Bean @SessionScoped)
 
@@ -42,30 +126,15 @@ Si no se especifica un nombre explícito, el nombre por defecto será el nombre 
 
 En el evento sessionCreated no tendremos que guardar en la sesión el objeto Carro.
 
-### 3. AgregarCarroServlet 
+### 3. AgregarCarroServlet: inyección del objeto Carro
 
 Añadimos de forma global la anotación @Inject en el objeto Carro.
 
-Modificaremos también el request, llamando directamente a carro.jsp
-
 En nuestra aplicación, no tenemos el controlador o Servlet para actualizar el carro (forma parte de la práctica), pero si tuviéramos ActualizarCarroServlet, también usaríamos @Inject
 
-### 4. Modificamos la forma en leer de la Sesión el carro en carro.jsp 
+### 4. Crear nuestra vista carro con JSF
 
-### 5. Es necesario crear un archivo de configuración llamado beans.xml con la etiqueta beans vacía en WEB-INF del proyecto. 
-
-Es requisito:
-   
-![image](https://github.com/user-attachments/assets/483fcdf2-e322-40ac-b6e3-d9786df269a3)
-
-
-## CDI y JavaServer Faces (JSF)
-
-Para manejar la vista, JSF es un framework orientado a componentes que se integra muy bien con CDI. 
-
-JSF es parte de Jakarta EE y ofrece una forma limpia de gestionar la lógica de la interfaz de usuario (UI) usando CDI para manejar los beans que interactúan con la vista.
-
-JSF usa facelets (.xhtml) en lugar de JSP, lo que te permite hacer inyecciones de dependencias directamente en la vista. Ejemplo:
+Crea un archivo llamado carroJSF.xhtml con este contenido:
 
 ```
 <!DOCTYPE html>
@@ -73,39 +142,56 @@ JSF usa facelets (.xhtml) en lugar de JSP, lo que te permite hacer inyecciones d
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <head>
-    <title>Carro de Compras</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Carro de compras</title>
 </head>
 <body>
+    <h1>Carro de compras</h1>
 
-<h1>Carro de Compras</h1>
+    <!-- Mostrar mensaje si el carro está vacío -->
+    <h:panelGroup rendered="#{carro == null or empty carro.items}">
+        <p>Lo sentimos, no hay productos en el carro de compras!</p>
+    </h:panelGroup>
 
-<!-- Mostrar alerta si el carro está vacío -->
-<h:panelGroup rendered="#{carro.empty}">
-    <div class="alert alert-warning">
-        Lo sentimos, no hay productos en el carro de compras!
-    </div>
-</h:panelGroup>
+    <!-- Mostrar la tabla si el carro tiene productos -->
+    <h:panelGroup rendered="#{carro != null and not empty carro.items}">
+        <h:dataTable value="#{carro.items}" var="item" border="1">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                <h:outputText value="#{item.producto.id}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{item.producto.nombre}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Precio</f:facet>
+                <h:outputText value="#{item.producto.precio}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Cantidad</f:facet>
+                <h:outputText value="#{item.cantidad}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Total</f:facet>
+                <h:outputText value="#{item.importe}" />
+            </h:column>
+        </h:dataTable>
 
-<!-- Mostrar productos del carro si no está vacío -->
-<h:panelGroup rendered="#{not carro.empty}">
-    <h:dataTable value="#{carro.items}" var="item" border="1">
-        <h:column>
-            <f:facet name="header">Producto</f:facet>
-            <h:outputText value="#{item}" />
-        </h:column>
-    </h:dataTable>
-
-    <!-- Botón para simular agregar un producto -->
-    <h:form>
-        <h:commandButton value="Agregar Producto"
-                         action="#{carro.agregarItem('Producto ' + (carro.items.size() + 1))}" />
-    </h:form>
-</h:panelGroup>
-
+        <!-- Fila con el total general -->
+        <h:panelGrid columns="5">
+            <h:outputText value="" />
+            <h:outputText value="" />
+            <h:outputText value="" />
+            <h:outputText value="Total:" style="text-align: right" />
+            <h:outputText value="#{carro.total}" />
+        </h:panelGrid>
+    </h:panelGroup>
 </body>
 </html>
 
 ```
 
-Una alternativa más moderna y con una separación más clara de la lógica y la presentación, es **Thymeleaf** es otra opción para la vista. Aunque es más común en aplicaciones Spring, puede usarse con Jakarta EE.
+
+
+
