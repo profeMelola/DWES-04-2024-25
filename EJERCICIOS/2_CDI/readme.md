@@ -6,7 +6,7 @@ No vamos a modificar la funcionalidad, pero vamos a comprobar que ahorramos cód
 
 ## Vamos a modificar:
 
-1. Clase Carro (convertilo en un Bean @SessionScoped)
+### 1. Clase Carro (convertilo en un Bean @SessionScoped)
 
 ```
 @SessionScoped
@@ -38,13 +38,26 @@ El objeto puede ser referenciado directamente desde el código de la interfaz (p
 
 Si no se especifica un nombre explícito, el nombre por defecto será el nombre de la clase con la primera letra en minúscula (carro en este caso).
 
-2. Listener (sessionCreated para no crear ni guardar en sesión el carro )
-4. AgregarCarroServlet (para @Inject el Carro). Modificaremos también el request, llamando directamente a carro.jsp
-5. En nuestra aplicación, no tenemos el controlador o Servlet para actualizar el carro (forma parte de la práctica), pero si tuviéramos ActualizarCarroServlet, también usaríamos @Inject
-6. Modificamos la forma en leer de la Sesión el carro en carro.jsp 
-7. Es necesario crear un archivo de configuración llamado beans.xml con la etiqueta beans vacía en WEB-INF del proyecto. Es requisito.
+### 2. Listener
+
+En el evento sessionCreated no tendremos que guardar en la sesión el objeto Carro.
+
+### 3. AgregarCarroServlet 
+
+Añadimos de forma global la anotación @Inject en el objeto Carro.
+
+Modificaremos también el request, llamando directamente a carro.jsp
+
+En nuestra aplicación, no tenemos el controlador o Servlet para actualizar el carro (forma parte de la práctica), pero si tuviéramos ActualizarCarroServlet, también usaríamos @Inject
+
+### 4. Modificamos la forma en leer de la Sesión el carro en carro.jsp 
+
+### 5. Es necesario crear un archivo de configuración llamado beans.xml con la etiqueta beans vacía en WEB-INF del proyecto. 
+
+Es requisito:
    
 ![image](https://github.com/user-attachments/assets/483fcdf2-e322-40ac-b6e3-d9786df269a3)
+
 
 ## CDI y JavaServer Faces (JSF)
 
