@@ -10,7 +10,7 @@ JSF es parte de Jakarta EE y ofrece una forma limpia de gestionar la lógica de 
 
 JSF usa facelets (.xhtml) en lugar de JSP, lo que te permite hacer inyecciones de dependencias directamente en la vista.
 
-Una alternativa más moderna y con una separación más clara de la lógica y la presentación, es **Thymeleaf** es otra opción para la vista. Aunque es más común en aplicaciones Spring, puede usarse con Jakarta EE.
+Una alternativa más moderna y con una separación más clara de la lógica y la presentación es **Thymeleaf**. Aunque es más común en aplicaciones Spring, puede usarse con Jakarta EE.
 
 ## CONFIGURACIÓN DEL ENTORNO
 
