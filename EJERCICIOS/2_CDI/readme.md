@@ -132,7 +132,23 @@ Añadimos de forma global la anotación @Inject en el objeto Carro.
 
 En nuestra aplicación, no tenemos el controlador o Servlet para actualizar el carro (forma parte de la práctica), pero si tuviéramos ActualizarCarroServlet, también usaríamos @Inject
 
-### 4. Crear nuestra vista carro con JSF
+La repuesta ahora será redirigir directamente a nuestra vista JSF:
+
+```
+getServletContext().getRequestDispatcher("/carroJSF.xhtml").forward(request, response);
+
+```
+
+### 4. VerCarroServlet
+
+Modificar la respuesta para no usar JSP:
+
+```
+getServletContext().getRequestDispatcher("/carroJSF.xhtml").forward(request, response);
+
+```
+
+### 5. Crear nuestra vista carro con JSF
 
 Crea un archivo llamado carroJSF.xhtml con este contenido:
 
