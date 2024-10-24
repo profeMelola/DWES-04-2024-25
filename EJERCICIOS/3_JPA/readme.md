@@ -122,3 +122,5 @@ Añadimos un DataSource:
                 </datasource>             
 
 ```
+
+## Sigue las indicaciones de tu profesor para crear las entidades, controladores y vistas....
