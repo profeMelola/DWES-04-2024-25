@@ -25,7 +25,11 @@ Si bien JakartaEE incluye la API, necesitas una implementación específica. Ecl
 
 ## Configuración de persistence.xml
 
-Dentro de META-INF, deberás crear o ajustar este archivo con la configuración adecuada del proveedor de persistencia, como el nombre de tu unidad de persistencia (persistence-unit), la conexión a la base de datos, etc.
+Dentro de **META-INF**, deberás crear o ajustar este archivo con la configuración adecuada del proveedor de persistencia, como el nombre de tu unidad de persistencia (persistence-unit), la conexión a la base de datos, etc.
+
+
+![image](https://github.com/user-attachments/assets/5529558d-26bf-4e49-b8d2-9c927bd95590)
+
 
 No es necesario registrar manualmente todas las entidades en el archivo persistence.xml, ya que JPA permite descubrir automáticamente las entidades mediante las anotaciones en las clases de entidad. Esto simplifica bastante la configuración, ya que no tienes que declararlas explícitamente en el persistence.xml.
 
