@@ -71,7 +71,7 @@ No es necesario registrar manualmente todas las entidades en el archivo persiste
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:~/tienda;AUTO_SERVER=TRUE"/>
             <property name="jakarta.persistence.jdbc.user" value="sa"/>
-            <property name="jakarta.persistence.jdbc.password" value=""/>
+            <property name="jakarta.persistence.jdbc.password" value="sa"/>
             <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
 
             <!-- Otras configuraciones de JPA -->
@@ -118,9 +118,19 @@ Añadimos un DataSource:
                 <datasource jndi-name="java:jboss/datasources/MyDataSource" pool-name="MyDataSource" enabled="true" use-java-context="true" statistics-enabled="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}">
                     <connection-url>jdbc:h2:~/tienda;AUTO_SERVER=TRUE</connection-url>
                     <driver>h2</driver>
-                    <security user-name="sa" password=""/>   
+                    <security user-name="sa" password="sa"/>   
                 </datasource>             
 
 ```
+
+___
+
+Es necesario cambiar la contraseña del usuario sa en H2, porque en el datasource del standalone.xml no te deja poner la password en blanco.
+
+```
+ALTER USER SA SET PASSWORD 'nueva_contraseña';
+```
+
+
 
 ## Sigue las indicaciones de tu profesor para crear las entidades, controladores y vistas....
