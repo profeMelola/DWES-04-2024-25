@@ -139,5 +139,9 @@ ALTER USER SA SET PASSWORD 'sa';
 ```
 
 
+**WildFly ya tiene Hibernate como su proveedor JPA predeterminado. Si tienes un persistence.xml correctamente configurado y un DataSource en WildFly, todo debería funcionar sin problemas.**
+
+
+
 
 ## Sigue las indicaciones de tu profesor para crear las entidades, controladores y vistas....
