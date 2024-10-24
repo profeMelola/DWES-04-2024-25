@@ -128,7 +128,7 @@ ___
 Es necesario cambiar la contraseña del usuario sa en H2, porque en el datasource del standalone.xml no te deja poner la password en blanco.
 
 ```
-ALTER USER SA SET PASSWORD 'nueva_contraseña';
+ALTER USER SA SET PASSWORD 'sa';
 ```
 
 
