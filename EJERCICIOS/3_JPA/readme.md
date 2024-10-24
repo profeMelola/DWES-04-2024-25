@@ -11,8 +11,15 @@ Como tenemos esta dependencia, con el profile web de Jakarta, no es necesario a�
 			<scope>provided</scope>
 		</dependency>
 ```
+Al indicar **scope con valor provided** esta dependencia será provista por el servidor de aplicaciones o el entorno en tiempo de ejecución y no será incluida en el archivo empaquetado.
 
-Si bien JakartaEE incluye la API, necesitas una implementación específica. EclipseLink (proveedor por defecto de JakartaEE) y Hibernate son opciones comunes.
+Esto significa que si estás desplegando tu aplicación en un servidor de aplicaciones que ya implementa Jakarta EE completo (como WildFly, Payara, GlassFish, OpenLiberty, entre otros), no necesitas agregar ninguna otra dependencia para JPA. El servidor ya debería proveer las librerías necesarias en tiempo de ejecución.
+
+WildFly ya trae un proveedor JPA integrado (generalmente Hibernate), por lo que simplemente puedes empezar a utilizar JPA directamente en tu código sin más configuraciones.
+
+Si necesitas una implementación específica, EclipseLink (proveedor por defecto de JakartaEE) y Hibernate son opciones comunes.
+
+Ejemplo de dependencia de Hibernate:
 
 ```
 <dependency>
