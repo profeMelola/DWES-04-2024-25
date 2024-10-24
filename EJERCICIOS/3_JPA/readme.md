@@ -104,3 +104,21 @@ public class MiEntidad {
 
 ```
 
+## Configuración de standalone.xml de Wildfly
+
+Editamos dicho fichero desde Visual Studio Code (Server Actions/Edit Configuration File):
+
+![image](https://github.com/user-attachments/assets/d5cbd71e-f335-419c-bda3-09cb18032ce7)
+
+___
+
+Añadimos un DataSource:
+
+```
+                <datasource jndi-name="java:jboss/datasources/MyDataSource" pool-name="MyDataSource" enabled="true" use-java-context="true" statistics-enabled="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}">
+                    <connection-url>jdbc:h2:~/tienda;AUTO_SERVER=TRUE</connection-url>
+                    <driver>h2</driver>
+                    <security user-name="sa" password="sa"/>   
+                </datasource>             
+
+```
