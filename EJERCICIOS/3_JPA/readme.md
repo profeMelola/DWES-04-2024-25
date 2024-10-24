@@ -1,5 +1,7 @@
 # Migrar el ejercicio de la tienda JDBC a JPA con el framework Hibernate
 
+Partimos de la solución que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao
+
 ## Dependencias
 Como tenemos esta dependencia, con el profile web de Jakarta, no es necesario añadir ninguna otra porque ya incluye JPA:
 
