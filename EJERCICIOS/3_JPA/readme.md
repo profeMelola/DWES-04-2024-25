@@ -27,6 +27,10 @@ Si bien JakartaEE incluye la API, necesitas una implementación específica. Ecl
 
 Dentro de META-INF, deberás crear o ajustar este archivo con la configuración adecuada del proveedor de persistencia, como el nombre de tu unidad de persistencia (persistence-unit), la conexión a la base de datos, etc.
 
+No es necesario registrar manualmente todas las entidades en el archivo persistence.xml, ya que JPA permite descubrir automáticamente las entidades mediante las anotaciones en las clases de entidad. Esto simplifica bastante la configuración, ya que no tienes que declararlas explícitamente en el persistence.xml.
+
+
+**Ejemplo de persistence.xml con descubrimiento automático:**
 ```
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -34,18 +38,42 @@ Dentro de META-INF, deberás crear o ajustar este archivo con la configuración 
              version="3.0">
     <persistence-unit name="my-persistence-unit" transaction-type="JTA">
         <jta-data-source>java:jboss/datasources/MyDataSource</jta-data-source>
-        <!--<class>com.miapp.model.MiEntidad</class>--> <!-- Tus entidades aquí. OBSOLETO!!!! -->
+
+        <!-- No necesitas especificar las clases manualmente si usas anotaciones -->
+        
         <properties>
-            <!-- Configuración del proveedor de JPA -->
             <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:~/tienda;AUTO_SERVER=TRUE"/>
             <property name="jakarta.persistence.jdbc.user" value="sa"/>
             <property name="jakarta.persistence.jdbc.password" value=""/>
             <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
 
-            <!-- Otras configuraciones como el dialecto -->
+            <!-- Otras configuraciones de JPA -->
             <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
         </properties>
     </persistence-unit>
 </persistence>
 
 ```
+
+Cuando defines una clase de entidad usando la anotación @Entity, JPA puede escanear automáticamente los paquetes y registrar las clases marcadas con dicha anotación, lo que evita tener que especificarlas manualmente en el persistence.xml.
+
+Por lo tanto, en tu persistence.xml, no es necesario listar cada entidad individualmente con la etiqueta <class>. Solo asegúrate de que tus clases de entidad estén anotadas correctamente.
+
+
+```
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class MiEntidad {
+    
+    @Id
+    private Long id;
+    
+    private String nombre;
+
+    // Getters y setters
+}
+
+```
+
