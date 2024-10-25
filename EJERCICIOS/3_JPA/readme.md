@@ -118,22 +118,22 @@ public class MiEntidad {
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
-    <persistence-unit name="my-persistence-unit" transaction-type="JTA">
-        <jta-data-source>java:jboss/datasources/MyDataSource</jta-data-source>
+    <persistence-unit name="H2DS" transaction-type="JTA">
+        <jta-data-source>java:/H2DS</jta-data-source>
 
         <!-- No necesitas especificar las clases manualmente si usas anotaciones -->
+         <class>es.daw.web.models.Fabricante</class>
         
+        <!-- <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> -->
         <properties>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:~/tienda;AUTO_SERVER=TRUE"/>
-            <property name="jakarta.persistence.jdbc.user" value="sa"/>
-            <property name="jakarta.persistence.jdbc.password" value="sa"/>
-            <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
 
             <!-- Otras configuraciones de JPA -->
-            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+            <!-- <property name="jakarta.persistence.schema-generation.database.action" value="create"/> -->
+            <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
         </properties>
     </persistence-unit>
 </persistence>
+
 
 ```
 
