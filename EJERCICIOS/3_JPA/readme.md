@@ -3,7 +3,18 @@
 Partimos de la solución que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao
 
 ## DEPENDENCIAS
-Como tenemos esta dependencia, con el profile web de Jakarta, no es necesario añadir ninguna otra porque ya incluye JPA:
+
+```
+		<!-- https://docs.wildfly.org/32/Developer_Guide.html#JPA_Reference_Guide -->
+		 <!-- https://hibernate.org/orm/documentation/6.1/ -->
+		<!-- <dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>6.5.2.Final</version>
+		</dependency>	
+```
+
+MENTIRA!!!!! Como tenemos esta dependencia, con el profile web de Jakarta, no es necesario añadir ninguna otra porque ya incluye JPA:
 
 ```
 		<dependency>
