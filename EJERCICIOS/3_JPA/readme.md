@@ -113,7 +113,15 @@ public class MiEntidad {
 
 ```
 
-## Configuración de standalone.xml de Wildfly
+## Añadir Data source: configuración de standalone.xml de Wildfly
+
+Un data source (o fuente de datos) en un servidor de aplicaciones es una configuración que define cómo la aplicación se conecta a una base de datos externa. 
+
+Es, básicamente, un conjunto de parámetros que encapsulan la información necesaria para la conexión, como la URL de la base de datos, el nombre de usuario, la contraseña, el tipo de base de datos y el controlador JDBC (Java Database Connectivity) adecuado.
+
+Los data sources permiten que el servidor de aplicaciones administre y optimice las conexiones a la base de datos, facilitando que las aplicaciones obtengan acceso a los datos de manera eficiente y segura. 
+
+En lugar de que cada aplicación gestione individualmente sus propias conexiones, el servidor de aplicaciones centraliza esta tarea
 
 ### Con la consola de administración de Wildfly
 
@@ -158,7 +166,9 @@ Vemos el fichero de configuración standalone.xml y ahí tenemos nuestro DataSou
        </validation>
 </datasource>
 ```
+___
 
+Editamos nuestro **persistence.xml** con los datos correctos de nuestro Data source.
 
 ### A mano ( a evitar)
 
