@@ -1,0 +1,30 @@
+# Archivos y carpetas específicas de Maven
+target/
+.mvn/
+mvnw
+mvnw.cmd
+
+# Ignorar archivos README.md
+README.md
+
+# Archivos de compilación específicos de Java
+*.class
+
+# Archivos de log
+*.log
+
+# Archivos de configuración de IDEs (Eclipse, IntelliJ, etc.)
+*.idea/
+*.project
+*.classpath
+*.settings/
+*.iml
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de dependencia y caché
+*.jar
+*.war
+*.ear
