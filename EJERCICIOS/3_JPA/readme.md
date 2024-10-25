@@ -2,7 +2,7 @@
 
 Partimos de la solución que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao
 
-## Dependencias
+## DEPENDENCIAS
 Como tenemos esta dependencia, con el profile web de Jakarta, no es necesario añadir ninguna otra porque ya incluye JPA:
 
 ```
@@ -32,7 +32,18 @@ Ejemplo de dependencia de Hibernate:
 
 ```
 
-## Configuración de persistence.xml
+**WildFly ya tiene Hibernate como su proveedor JPA predeterminado. Si tienes un persistence.xml correctamente configurado y un DataSource en WildFly, todo debería funcionar sin problemas.**
+
+## CONFIGURAR H2: Añadir contraseña al usuario sa de H2
+
+Es necesario cambiar la contraseña del usuario sa en H2, porque en el datasource del standalone.xml no te deja poner la password en blanco.
+
+```
+ALTER USER sa SET PASSWORD 'sa';
+```
+
+
+## CONIGURACIÓN DE PERSISTENCIA EN NUESTRO PROYECTO: configuración de persistence.xml
 
 Dentro de **META-INF**, deberás crear o ajustar este archivo con la configuración adecuada del proveedor de persistencia, como el nombre de tu unidad de persistencia (persistence-unit), la conexión a la base de datos, etc.
 
@@ -65,6 +76,30 @@ mi-proyecto
 
 No es necesario registrar manualmente todas las entidades en el archivo persistence.xml, ya que JPA permite descubrir automáticamente las entidades mediante las anotaciones en las clases de entidad. Esto simplifica bastante la configuración, ya que no tienes que declararlas explícitamente en el persistence.xml.
 
+Cuando defines una clase de entidad usando la anotación @Entity, JPA puede escanear automáticamente los paquetes y registrar las clases marcadas con dicha anotación, lo que evita tener que especificarlas manualmente en el persistence.xml.
+
+Por lo tanto, en tu persistence.xml, no es necesario listar cada entidad individualmente con la etiqueta <class>. Solo asegúrate de que tus clases de entidad estén anotadas correctamente.
+
+Ejemplo:
+
+```
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class MiEntidad {
+    
+    @Id
+    private Long id;
+    
+    private String nombre;
+
+    // Getters y setters
+}
+
+```
+
+
 
 **Ejemplo de persistence.xml con descubrimiento automático:**
 ```
@@ -91,29 +126,8 @@ No es necesario registrar manualmente todas las entidades en el archivo persiste
 
 ```
 
-Cuando defines una clase de entidad usando la anotación @Entity, JPA puede escanear automáticamente los paquetes y registrar las clases marcadas con dicha anotación, lo que evita tener que especificarlas manualmente en el persistence.xml.
 
-Por lo tanto, en tu persistence.xml, no es necesario listar cada entidad individualmente con la etiqueta <class>. Solo asegúrate de que tus clases de entidad estén anotadas correctamente.
-
-
-```
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
-@Entity
-public class MiEntidad {
-    
-    @Id
-    private Long id;
-    
-    private String nombre;
-
-    // Getters y setters
-}
-
-```
-
-## Añadir Data source: configuración de standalone.xml de Wildfly
+## AÑADIR DATA SOURCE: configuración de standalone.xml de Wildfly
 
 Un data source (o fuente de datos) en un servidor de aplicaciones es una configuración que define cómo la aplicación se conecta a una base de datos externa. 
 
@@ -123,7 +137,7 @@ Los data sources permiten que el servidor de aplicaciones administre y optimice 
 
 En lugar de que cada aplicación gestione individualmente sus propias conexiones, el servidor de aplicaciones centraliza esta tarea
 
-### Con la consola de administración de Wildfly
+### FORMA 1: Con la consola de administración de Wildfly
 
 Primero debemos crear un usuario administrador. Para ello hay que ejecutar el script **add-user.bat o add-user.sh** del directorio de instalación de Wildfly.
 
@@ -170,7 +184,7 @@ ___
 
 Editamos nuestro **persistence.xml** con los datos correctos de nuestro Data source.
 
-### A mano ( a evitar)
+### FORMA 2: editando directamente standalone.xml ( a evitar)
 
 Editamos dicho fichero desde Visual Studio Code (Server Actions/Edit Configuration File):
 
@@ -191,14 +205,7 @@ Añadimos un DataSource:
 
 ___
 
-Es necesario cambiar la contraseña del usuario sa en H2, porque en el datasource del standalone.xml no te deja poner la password en blanco.
 
-```
-ALTER USER sa SET PASSWORD 'sa';
-```
-
-
-**WildFly ya tiene Hibernate como su proveedor JPA predeterminado. Si tienes un persistence.xml correctamente configurado y un DataSource en WildFly, todo debería funcionar sin problemas.**
 
 
 
