@@ -1,0 +1,13 @@
+# Ignorar archivos y carpetas dentro de la carpeta ejercicios
+**/target/
+**/.mvn/
+**/mvnw
+**/mvnw.cmd
+
+# Ignorar todos los README.md dentro de la carpeta ejercicios
+**/README.md
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
