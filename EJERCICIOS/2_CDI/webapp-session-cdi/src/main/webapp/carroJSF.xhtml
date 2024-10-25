@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Carro de compras</title>
+    <!--<style>
+        table {
+            width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
+            border-collapse: collapse; /* Combina bordes adyacentes */
+        }
+
+        th, td {
+            border: 2px solid #ddd; /* Borde para las celdas */
+            padding: 8px; /* Espaciado dentro de las celdas */
+            /*text-align: left;*/ /* Alineación de texto */
+        }
+
+        th {
+            background-color: #f2f2f2; /* Color de fondo para los encabezados */
+            font-weight: bold; /* Negrita para los encabezados */
+        }
+
+        tr:hover {
+            background-color: #f5f5f5; /* Color de fondo al pasar el mouse */
+        }
+
+        .carro-table-center{
+            text-align: center;
+        }
+
+    </style>-->
+     <link rel="stylesheet" href="#{request.contextPath}/css/styles.css"/>
+</head>
+<body>
+    <h1>Carro de compras</h1>
+
+    <!-- Mostrar mensaje si el carro está vacío -->
+    <h:panelGroup rendered="#{carro == null or empty carro.items}">
+        <p>Lo sentimos, no hay productos en el carro de compras!</p>
+    </h:panelGroup>
+
+    <!-- Mostrar la tabla si el carro tiene productos -->
+    <h:panelGroup rendered="#{carro != null and not empty carro.items}">
+        <h:dataTable value="#{carro.items}" var="item" styleClass="carro-table-center">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                <h:outputText value="#{item.producto.id}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{item.producto.nombre}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Precio</f:facet>
+                <h:outputText value="#{item.producto.precio}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Cantidad</f:facet>
+                <h:outputText value="#{item.cantidad}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Total</f:facet>
+                <h:outputText value="#{item.importe}" />
+            </h:column>
+        </h:dataTable>
+
+        <p style="text-align: right;">Total: #{carro.total}</p>
+
+        <br/>
+
+        <!-- Fila con el total general -->
+        <h:panelGrid columns="5">
+            <h:outputText value="" />
+            <h:outputText value="" />
+            <h:outputText value="" />
+            <h:outputText value="Total:" style="text-align: right" />
+            <h:outputText value="#{carro.total}" />
+        </h:panelGrid>
+    </h:panelGroup>
+</body>
+</html>
