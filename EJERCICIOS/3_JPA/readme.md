@@ -117,6 +117,29 @@ public class MiEntidad {
 
 ### Con la consola de administración de Wildfly
 
+Primero debemos crear un usuario administrador. Para ello hay que ejecutar el script **add-user.bat o add-user.sh** del directorio de instalación de Wildfly.
+
+Vamos a crear el **usuario daw con pwd daw**. Le añadimos los grupos admin,management.
+
+**Observa la captura:**
+
+![image](https://github.com/user-attachments/assets/8a2de908-9e83-445a-aa2e-e475eaf8f1a9)
+
+___
+
+Después nos conectamos a la página principal de Wildfly (http://localhost:8080) y accedemos a la consola de administración:
+
+![image](https://github.com/user-attachments/assets/59d6d632-06ba-4d85-a7ce-81822002af0e)
+
+___
+
+Introducimos nuestro login y pwd y procedemos a crear un nuevo Data Source:
+
+![image](https://github.com/user-attachments/assets/361e8d0b-9a18-4215-8be0-63a25346768f)
+
+___
+
+
 ![image](https://github.com/user-attachments/assets/1ca327e2-26b8-480c-af7e-a5787cd7adef)
 
 
