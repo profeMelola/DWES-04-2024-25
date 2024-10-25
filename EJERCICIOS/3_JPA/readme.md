@@ -7,10 +7,10 @@ Partimos de la solución que está en https://github.com/profeMelola/DWES-04-202
 ```
 		<!-- https://docs.wildfly.org/32/Developer_Guide.html#JPA_Reference_Guide -->
 		 <!-- https://hibernate.org/orm/documentation/6.1/ -->
-		<!-- <dependency>
-			<groupId>org.hibernate</groupId>
+		<dependency>
+			<groupId>org.hibernate.ORM</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>6.5.2.Final</version>
+			<version>6.6.1.Final</version>
 		</dependency>	
 ```
 
