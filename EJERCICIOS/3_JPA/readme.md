@@ -115,6 +115,13 @@ public class MiEntidad {
 
 ## Configuración de standalone.xml de Wildfly
 
+### Con la consola de administración de Wildfly
+
+![image](https://github.com/user-attachments/assets/1ca327e2-26b8-480c-af7e-a5787cd7adef)
+
+
+### A mano
+
 Editamos dicho fichero desde Visual Studio Code (Server Actions/Edit Configuration File):
 
 ![image](https://github.com/user-attachments/assets/d5cbd71e-f335-419c-bda3-09cb18032ce7)
