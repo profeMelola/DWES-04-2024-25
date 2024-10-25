@@ -143,7 +143,24 @@ ___
 ![image](https://github.com/user-attachments/assets/1ca327e2-26b8-480c-af7e-a5787cd7adef)
 
 
-### A mano
+___
+
+Vemos el fichero de configuración standalone.xml y ahí tenemos nuestro DataSource:
+
+```
+<datasource jndi-name="java:/H2DS" pool-name="H2DS">
+       <connection-url>jdbc:h2:~/tienda;AUTO_SERVER=TRUE</connection-url>
+       <driver-class>org.h2.Driver</driver-class>
+       <driver>h2</driver>
+       <security user-name="sa" password="sa"/>
+       <validation>
+             <validate-on-match>true</validate-on-match>
+       </validation>
+</datasource>
+```
+
+
+### A mano ( a evitar)
 
 Editamos dicho fichero desde Visual Studio Code (Server Actions/Edit Configuration File):
 
