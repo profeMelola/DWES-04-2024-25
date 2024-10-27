@@ -7,8 +7,8 @@ Limpiamos el proyecto para trabajar solo con Fabricantes.
 
 ![image](https://github.com/user-attachments/assets/40586e75-aade-433e-822c-c6a92af2fe8d)
 
-
-## DEPENDENCIAS
+## CONFIGURACIÓN
+### 1. DEPENDENCIAS
 
 En principio, teniendo la dependencia del profile <artifactId>jakarta.jakartaee-web-api</artifactId>, NO sería necesario añadir una dependencia para Hibernate, ya que Wildfly lleva implementado su propio Hibernate.
 
@@ -49,7 +49,7 @@ Esto va a generar conflicto de dependencias, pero vamos a asumir ese conflicto p
 
 
 
-## CONFIGURAR H2: Añadir contraseña al usuario sa de H2
+### 2. CONFIGURAR H2: Añadir contraseña al usuario sa de H2
 
 Es necesario cambiar la contraseña del usuario sa en H2, porque en el datasource del standalone.xml no te deja poner la password en blanco.
 
@@ -58,7 +58,7 @@ ALTER USER sa SET PASSWORD 'sa';
 ```
 
 
-## CONIGURACIÓN DE PERSISTENCIA EN NUESTRO PROYECTO: configuración de persistence.xml
+### 3. CONIGURACIÓN DE PERSISTENCIA EN NUESTRO PROYECTO: configuración de persistence.xml
 
 Dentro de **META-INF**, deberás crear o ajustar este archivo con la configuración adecuada del proveedor de persistencia, como el nombre de tu unidad de persistencia (persistence-unit), la conexión a la base de datos, etc.
 
@@ -123,7 +123,7 @@ En otro tipo de aplicaciones o con frameworks como Spring, no es necesario regis
 ```
 
 
-## AÑADIR DATA SOURCE: configuración de standalone.xml de Wildfly
+### 4. AÑADIR DATA SOURCE: configuración de standalone.xml de Wildfly
 
 Un data source (o fuente de datos) en un servidor de aplicaciones es una configuración que define cómo la aplicación se conecta a una base de datos externa. 
 
@@ -134,7 +134,7 @@ Los data sources permiten que el servidor de aplicaciones administre y optimice 
 En lugar de que cada aplicación gestione individualmente sus propias conexiones, el servidor de aplicaciones centraliza esta tarea
 
 
-### FORMA 1: Con la consola de administración de Wildfly (debes tener permiso de administrador)
+#### FORMA 1: Con la consola de administración de Wildfly (debes tener permiso de administrador)
 
 Primero debemos crear un usuario administrador. Para ello hay que ejecutar el script **add-user.bat o add-user.sh** del directorio de instalación de Wildfly.
 
@@ -180,7 +180,7 @@ Vemos el fichero de configuración standalone.xml y ahí tenemos nuestro DataSou
 ___
 
 
-### FORMA 2: editando directamente standalone.xml ( COMO LO HAREMOS EN CLASE POR PROBLEMAS DE PERMISOS)
+#### FORMA 2: editando directamente standalone.xml ( COMO LO HAREMOS EN CLASE POR PROBLEMAS DE PERMISOS)
 
 Editamos dicho fichero desde Visual Studio Code (Server Actions/Edit Configuration File):
 
