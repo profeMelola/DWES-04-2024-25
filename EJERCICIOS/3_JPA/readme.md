@@ -133,7 +133,8 @@ Los data sources permiten que el servidor de aplicaciones administre y optimice 
 
 En lugar de que cada aplicación gestione individualmente sus propias conexiones, el servidor de aplicaciones centraliza esta tarea
 
-### FORMA 1: Con la consola de administración de Wildfly
+
+### FORMA 1: Con la consola de administración de Wildfly (debes tener permiso de administrador)
 
 Primero debemos crear un usuario administrador. Para ello hay que ejecutar el script **add-user.bat o add-user.sh** del directorio de instalación de Wildfly.
 
@@ -178,9 +179,8 @@ Vemos el fichero de configuración standalone.xml y ahí tenemos nuestro DataSou
 ```
 ___
 
-Editamos nuestro **persistence.xml** con los datos correctos de nuestro Data source.
 
-### FORMA 2: editando directamente standalone.xml ( a evitar)
+### FORMA 2: editando directamente standalone.xml ( COMO LO HAREMOS EN CLASE POR PROBLEMAS DE PERMISOS)
 
 Editamos dicho fichero desde Visual Studio Code (Server Actions/Edit Configuration File):
 
@@ -191,16 +191,21 @@ ___
 Añadimos un DataSource:
 
 ```
-                <datasource jndi-name="java:jboss/datasources/MyDataSource" pool-name="MyDataSource" enabled="true" use-java-context="true" statistics-enabled="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}">
-                    <connection-url>jdbc:h2:~/tienda;AUTO_SERVER=TRUE</connection-url>
-                    <driver>h2</driver>
-                    <security user-name="sa" password="sa"/>   
-                </datasource>             
+<datasource jndi-name="java:/H2DS" pool-name="H2DS">
+       <connection-url>jdbc:h2:~/tienda;AUTO_SERVER=TRUE</connection-url>
+       <driver-class>org.h2.Driver</driver-class>
+       <driver>h2</driver>
+       <security user-name="sa" password="sa"/>
+       <validation>
+             <validate-on-match>true</validate-on-match>
+       </validation>
+</datasource>    
 
 ```
 
 ___
 
+**El jndi-name y connection-url deben coincidir en el datasource y en persistence.xml**
 
 
 
