@@ -3,7 +3,7 @@
 
 Partimos de la solución que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao
 
-Limpiamos el proyecto para trabajar solo con Fabricantes.
+Limpiamos el proyecto para trabajar solo con Fabricantes. Nuestro proyecto se llamará **PRIMER_JPA**:
 
 ![image](https://github.com/user-attachments/assets/40586e75-aade-433e-822c-c6a92af2fe8d)
 
