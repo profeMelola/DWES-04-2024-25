@@ -89,31 +89,13 @@ mi-proyecto
 ```
 
 
-No es necesario registrar manualmente todas las entidades en el archivo persistence.xml, ya que JPA permite descubrir automáticamente las entidades mediante las anotaciones en las clases de entidad. Esto simplifica bastante la configuración, ya que no tienes que declararlas explícitamente en el persistence.xml.
+No es necesario registrar manualmente todas las entidades en el archivo persistence.xml, ya que JPA permite descubrir automáticamente las entidades mediante las anotaciones en las clases de entidad. 
+
+Esto simplifica bastante la configuración, ya que no tienes que declararlas explícitamente en el persistence.xml.
 
 Cuando defines una clase de entidad usando la anotación @Entity, JPA puede escanear automáticamente los paquetes y registrar las clases marcadas con dicha anotación, lo que evita tener que especificarlas manualmente en el persistence.xml.
 
 Por lo tanto, en tu persistence.xml, no es necesario listar cada entidad individualmente con la etiqueta <class>. Solo asegúrate de que tus clases de entidad estén anotadas correctamente.
-
-Ejemplo:
-
-```
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
-@Entity
-public class MiEntidad {
-    
-    @Id
-    private Long id;
-    
-    private String nombre;
-
-    // Getters y setters
-}
-
-```
-
 
 
 **Ejemplo de persistence.xml con descubrimiento automático:**
