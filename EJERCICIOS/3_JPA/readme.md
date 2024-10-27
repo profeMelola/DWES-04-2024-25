@@ -28,6 +28,7 @@ WildFly ya trae un proveedor JPA integrado (generalmente Hibernate), por lo que 
 
 Si necesitas una implementación específica, EclipseLink (proveedor por defecto de JakartaEE) y Hibernate son opciones comunes.
 
+___
 
 En nuestro entorno SÍ es necesario para que no nos de error. 
 
@@ -42,6 +43,9 @@ En nuestro entorno SÍ es necesario para que no nos de error.
 ```
 
 
+Esto va a generar conflicto de dependencias, pero vamos a asumir ese conflicto para tener un entorno funcional:
+
+![image](https://github.com/user-attachments/assets/0ded7cd2-038e-4ab0-8777-c27ca3f6f8e5)
 
 
 
