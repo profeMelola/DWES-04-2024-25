@@ -1,20 +1,16 @@
-# Migrar el ejercicio de la tienda JDBC a JPA con el framework Hibernate
+
+# EJERCICIO 1: CRUD JPA de Fabricantes
 
 Partimos de la solución que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao
 
+Limpiamos el proyecto para trabajar solo con Fabricantes.
+
+![image](https://github.com/user-attachments/assets/40586e75-aade-433e-822c-c6a92af2fe8d)
+
+
 ## DEPENDENCIAS
 
-```
-		<!-- https://docs.wildfly.org/32/Developer_Guide.html#JPA_Reference_Guide -->
-		 <!-- https://hibernate.org/orm/documentation/6.1/ -->
-		<dependency>
-			<groupId>org.hibernate.orm</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>6.6.1.Final</version>
-		</dependency>	
-```
-
-MENTIRA!!!!! Como tenemos esta dependencia, con el profile web de Jakarta, no es necesario añadir ninguna otra porque ya incluye JPA:
+En principio, teniendo la dependencia del profile <artifactId>jakarta.jakartaee-web-api</artifactId>, NO sería necesario añadir una dependencia para Hibernate, ya que Wildfly lleva implementado su propio Hibernate.
 
 ```
 		<dependency>
@@ -32,18 +28,22 @@ WildFly ya trae un proveedor JPA integrado (generalmente Hibernate), por lo que 
 
 Si necesitas una implementación específica, EclipseLink (proveedor por defecto de JakartaEE) y Hibernate son opciones comunes.
 
-Ejemplo de dependencia de Hibernate:
+
+En nuestro entorno SÍ es necesario para que no nos de error. 
 
 ```
-<dependency>
-    <groupId>org.hibernate.orm</groupId>
-    <artifactId>hibernate-core</artifactId>
-    <version>6.6.1.Final</version> <!-- Asegúrate de usar una versión compatible con JakartaEE 10 -->
-</dependency>
-
+		<!-- https://docs.wildfly.org/32/Developer_Guide.html#JPA_Reference_Guide -->
+		 <!-- https://hibernate.org/orm/documentation/6.1/ -->
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>6.6.1.Final</version>
+		</dependency>	
 ```
 
-**WildFly ya tiene Hibernate como su proveedor JPA predeterminado. Si tienes un persistence.xml correctamente configurado y un DataSource en WildFly, todo debería funcionar sin problemas.**
+
+
+
 
 ## CONFIGURAR H2: Añadir contraseña al usuario sa de H2
 
@@ -222,3 +222,8 @@ ___
 
 
 ## Sigue las indicaciones de tu profesor para crear las entidades, controladores y vistas....
+
+
+# EJERCICIO 2: Migrar el ejercicio de la tienda JDBC a JPA con el framework Hibernate
+
+Partimos de la solución que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao
