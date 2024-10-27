@@ -1,6 +1,9 @@
 
 # EJERCICIO 1: CRUD JPA de Fabricantes
 
+![image](https://github.com/user-attachments/assets/3475296e-f4fb-4254-bbcb-7a0d21d3bdb8)
+
+
 Partimos de la solución que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao
 
 Limpiamos el proyecto para trabajar solo con Fabricantes. Nuestro proyecto se llamará **PRIMER_JPA**:
