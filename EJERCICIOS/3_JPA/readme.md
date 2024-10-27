@@ -88,17 +88,13 @@ mi-proyecto
 
 ```
 
+**En aplicaciones web simples (Servlets y JSP sin EJB ni CDI), la detección automática de las entidades JPA no se habilita de forma predeterminada.**
 
-No es necesario registrar manualmente todas las entidades en el archivo persistence.xml, ya que JPA permite descubrir automáticamente las entidades mediante las anotaciones en las clases de entidad. 
-
-Esto simplifica bastante la configuración, ya que no tienes que declararlas explícitamente en el persistence.xml.
-
-Cuando defines una clase de entidad usando la anotación @Entity, JPA puede escanear automáticamente los paquetes y registrar las clases marcadas con dicha anotación, lo que evita tener que especificarlas manualmente en el persistence.xml.
-
-Por lo tanto, en tu persistence.xml, no es necesario listar cada entidad individualmente con la etiqueta <class>. Solo asegúrate de que tus clases de entidad estén anotadas correctamente.
+En otro tipo de aplicaciones o con frameworks como Spring, no es necesario registrar manualmente todas las entidades en el archivo persistence.xml, ya que JPA permite descubrir automáticamente las entidades mediante las anotaciones en las clases de entidad. 
 
 
-**Ejemplo de persistence.xml con descubrimiento automático:**
+**COPIA ESTE persistence.xml:**
+
 ```
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -106,19 +102,22 @@ Por lo tanto, en tu persistence.xml, no es necesario listar cada entidad individ
              version="3.0">
     <persistence-unit name="H2DS" transaction-type="JTA">
         <jta-data-source>java:/H2DS</jta-data-source>
+        <!-- Si solo estás utilizando Servlets y JSP sin EJB ni CDI, 
+         la detección automática de las entidades JPA no se habilita de forma predeterminada -->
+        <!--<exclude-unlisted-classes>false</exclude-unlisted-classes>--> <!-- no funciona -->
+
+        <class>es.daw.web.models.Fabricante</class>
 
         <!-- No necesitas especificar las clases manualmente si usas anotaciones -->
-         <class>es.daw.web.models.Fabricante</class>
         
-        <!-- <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> -->
         <properties>
 
             <!-- Otras configuraciones de JPA -->
-            <!-- <property name="jakarta.persistence.schema-generation.database.action" value="create"/> -->
             <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
         </properties>
     </persistence-unit>
 </persistence>
+
 
 
 ```
