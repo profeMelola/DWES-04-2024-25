@@ -1,5 +1,5 @@
 
-# EJERCICIO 1: CRUD JPA de Fabricantes
+# EJERCICIO 1: JPA de listado de Fabricantes
 
 ![image](https://github.com/user-attachments/assets/3475296e-f4fb-4254-bbcb-7a0d21d3bdb8)
 
@@ -213,10 +213,10 @@ ___
 
 
 
-
 ## Sigue las indicaciones de tu profesor para crear las entidades, controladores y vistas....
 
+# EJERCICIO 2: CRUD JPA de Fabricantes
 
-# EJERCICIO 2: Migrar el ejercicio de la tienda JDBC a JPA con el framework Hibernate
+# EJERCICIO 3: Migrar el ejercicio de la tienda JDBC a JPA con el framework Hibernate
 
 Partimos de la solución que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao
