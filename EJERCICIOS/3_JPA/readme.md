@@ -230,3 +230,29 @@ ALTER TABLE fabricante ALTER COLUMN codigo RESTART WITH 10;
 # EJERCICIO 3: Migrar el ejercicio de la tienda JDBC a JPA con el framework Hibernate
 
 Partimos de la solución que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao
+
+## Nuevas etiquetas para la relación ManyToOne entre productos y fabricantes
+
+- **@ManyToOne:** Indica que muchos productos pueden estar asociados a un solo fabricante.
+- **@JoinColumn:** Especifica la columna de la tabla Producto que actúa como la clave foránea (codigo_fabricante).
+	- name: El nombre de la columna en la tabla Producto.
+	- referencedColumnName: El nombre de la columna en la tabla Fabricante que se referencia (en este caso, codigo).
+	- nullable: Indica si el campo puede ser nulo (especifica false si todos los productos deben tener un fabricante).
+
+### Convierte Producto en una entidad:
+
+```
+@Entity
+@Table(name = "producto")
+public class Producto{
+
+    @Id
+    private int codigo;
+    private String nombre;
+    private float precio;
+
+    @ManyToOne
+    @JoinColumn(name = "codigo_fabricante", referencedColumnName = "codigo", nullable = false)
+    //private int codigo_fabricante;
+    private Fabricante fabricante; // En lugar de int, aquí tienes el objeto Fabricante
+```
