@@ -229,7 +229,9 @@ ALTER TABLE fabricante ALTER COLUMN codigo RESTART WITH 10;
 
 # EJERCICIO 3: Migrar el ejercicio de la tienda JDBC a JPA con el framework Hibernate
 
-Partimos de la solución que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao
+Partimos de la solución JDBC que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao.
+
+En base a lo aprendido en el ejercicio 2, implementa la solución completa JPA.
 
 ## Nuevas etiquetas para la relación ManyToOne entre productos y fabricantes
 
