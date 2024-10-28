@@ -235,9 +235,9 @@ Partimos de la solución que está en https://github.com/profeMelola/DWES-04-202
 
 - **@ManyToOne:** Indica que muchos productos pueden estar asociados a un solo fabricante.
 - **@JoinColumn:** Especifica la columna de la tabla Producto que actúa como la clave foránea (codigo_fabricante).
-	- name: El nombre de la columna en la tabla Producto.
-	- referencedColumnName: El nombre de la columna en la tabla Fabricante que se referencia (en este caso, codigo).
-	- nullable: Indica si el campo puede ser nulo (especifica false si todos los productos deben tener un fabricante).
+	- **name:** El nombre de la columna en la tabla Producto.
+	- **referencedColumnName:** El nombre de la columna en la tabla Fabricante que se referencia (en este caso, codigo).
+	- **nullable:** Indica si el campo puede ser nulo (especifica false si todos los productos deben tener un fabricante).
 
 ### Convierte Producto en una entidad:
 
