@@ -231,7 +231,9 @@ ALTER TABLE fabricante ALTER COLUMN codigo RESTART WITH 10;
 
 Partimos de la solución JDBC que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao.
 
-En base a lo aprendido en el ejercicio 2, implementa la solución completa JPA.
+En base a lo aprendido en el ejercicio 2, implementa la solución completa JPA para administrar productos.
+
+El listado de fabricantes debe salir dinámicamente según lo existente en la base de datos.
 
 ## Nuevas etiquetas para la relación ManyToOne entre productos y fabricantes
 
