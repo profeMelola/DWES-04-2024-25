@@ -219,6 +219,14 @@ ___
 
 # EJERCICIO 2: CRUD JPA de Fabricantes
 
+Para poder insertar fabricantes vamos a modificar la tabla en H2 para que el código (primary key) sea autoincrement:
+
+```
+ALTER TABLE fabricante
+ALTER COLUMN codigo INT AUTO_INCREMENT;
+ALTER TABLE fabricante ALTER COLUMN codigo RESTART WITH 10;
+```
+
 # EJERCICIO 3: Migrar el ejercicio de la tienda JDBC a JPA con el framework Hibernate
 
 Partimos de la solución que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao
