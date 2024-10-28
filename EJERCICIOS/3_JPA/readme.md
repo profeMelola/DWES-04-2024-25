@@ -33,7 +33,9 @@ Si necesitas una implementación específica, EclipseLink (proveedor por defecto
 
 ___
 
-En nuestro entorno SÍ es necesario para que no nos de error. 
+Pero...**en nuestro entorno SÍ es necesario para que no nos de error.**
+
+Por tanto vamos a añadir esta dependencia:
 
 ```
 		<!-- https://docs.wildfly.org/32/Developer_Guide.html#JPA_Reference_Guide -->
