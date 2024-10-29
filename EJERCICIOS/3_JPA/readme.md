@@ -248,11 +248,11 @@ Este es el resultado de la lista de fabricantes:
 
 
 
-# EJERCICIO 3: Migrar el ejercicio de la tienda JDBC a JPA con el framework Hibernate
+# EJERCICIO 3: Migrar el ejercicio de la tienda JDBC a JPA
 
 Partimos de la solución JDBC que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao.
 
-En base a lo aprendido en el ejercicio 2, implementa la solución completa JPA para administrar productos.
+En base a lo aprendido en los ejercicios anteriores, implementa la solución completa JPA para administrar productos.
 
 El listado de fabricantes debe salir dinámicamente según lo existente en la base de datos.
 
