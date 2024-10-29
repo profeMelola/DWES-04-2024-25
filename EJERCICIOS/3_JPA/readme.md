@@ -217,7 +217,7 @@ ___
 
 ## Sigue las indicaciones de tu profesor para crear las entidades, controladores y vistas....
 
-# EJERCICIO 2: CRUD JPA de Fabricantes
+# EJERCICIO 2: CRUD JPA de Fabricantes con JSP
 
 Para poder insertar fabricantes vamos a modificar la tabla en H2 para que el código (primary key) sea autoincrement:
 
@@ -226,6 +226,27 @@ ALTER TABLE fabricante
 ALTER COLUMN codigo INT AUTO_INCREMENT;
 ALTER TABLE fabricante ALTER COLUMN codigo RESTART WITH 10;
 ```
+___
+
+Esta es la página de inicio:
+
+![image](https://github.com/user-attachments/assets/a20db192-e40c-41c4-8c2f-171e8f25ab70)
+
+
+# EJERCICIO 3: CRUD JPA de Fabricantes con JSF y Bootstrap
+
+## Configura tu proyecto para que soporte JSF.
+
+![image](https://github.com/user-attachments/assets/9da1b01d-c880-4cd6-a7a8-33550a410a88)
+
+
+## Crea una página xhtml para mostar el listado de fabricantes
+
+Este es el resultado de la lista de fabricantes:
+
+![image](https://github.com/user-attachments/assets/30cb4ef8-ff2b-4449-b5dc-7b89f04ed05e)
+
+
 
 # EJERCICIO 3: Migrar el ejercicio de la tienda JDBC a JPA con el framework Hibernate
 
