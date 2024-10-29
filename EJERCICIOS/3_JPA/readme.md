@@ -240,7 +240,39 @@ Esta es la página de inicio:
 ![image](https://github.com/user-attachments/assets/9da1b01d-c880-4cd6-a7a8-33550a410a88)
 
 
-## Crea una página xhtml para mostar el listado de fabricantes
+## Crea un facelet (página xhtml) para mostar el listado de fabricantes
+
+Vamos a crear un snippet para facilitar el trabajo. Llama al snippet **facelet** y copia lo siguiente:
+
+```
+{
+    "Plantilla básica XHTML": {
+        "prefix": "xhtmltemplate",
+        "body": [
+            "<!DOCTYPE html>",
+            "<html xmlns=\"http://www.w3.org/1999/xhtml\"",
+            "      xmlns:h=\"http://xmlns.jcp.org/jsf/html\"",
+            "      xmlns:f=\"http://xmlns.jcp.org/jsf/core\">",
+            "<head>",
+            "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />",
+            "    <title>Título</title>",
+            "    <link rel=\"stylesheet\" type=\"text/css\" href=\"#{request.contextPath}/css/bootstrap.min.css\" />",
+            "</head>",
+            "<body class=\"container mt-4\">",
+            "    <h1 class=\"text-primary mb-4\">Título</h1>",
+            "</body>",
+            "</html>"
+        ],
+        "description": "Plantilla básica para un archivo XHTML con Jakarta EE"
+    }
+}
+
+```
+__
+
+El archivo **bootstrap.min.css** está en el repositorio de GitHub. Descárgalo y copíalo en el directorio **webapp/css** de tu proyecto.
+
+__
 
 Este es el resultado de la lista de fabricantes:
 
