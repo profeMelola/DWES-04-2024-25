@@ -268,11 +268,11 @@ Vamos a crear un snippet para facilitar el trabajo. Llama al snippet **facelet**
 }
 
 ```
-__
+___
 
 El archivo **bootstrap.min.css** está en el repositorio de GitHub. Descárgalo y copíalo en el directorio **webapp/css** de tu proyecto.
 
-__
+___
 
 Este es el resultado de la lista de fabricantes:
 
