@@ -235,6 +235,71 @@ Esta es la página de inicio:
 
 # EJERCICIO 3: CRUD JPA de Fabricantes con JSF y Bootstrap
 
+## Esta será la nueva página de inicio
+
+![image](https://github.com/user-attachments/assets/61a46ea9-874f-46bf-82c2-6024ef2b38a6)
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CRUD JPA</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />        
+    </head>
+    <body class="bg-light">
+        <div class="container mt-5">
+            <h1 class="text-center mb-4">CRUD JPA - FABRICANTES</h1>
+            <form action="fabricantes/jpa" method="GET">
+                <fieldset class="border p-4 mb-4 rounded">
+                    <legend class="w-auto font-weight-bold">Datos del fabricante</legend>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre"/>
+                    </div>
+                </fieldset>
+                <fieldset class="border p-4 mb-4 rounded">
+                    <legend class="w-auto font-weight-bold">Operaciones</legend>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" value="select" name="operacion" id="listar" required/>
+                            <label class="form-check-label" for="listar">Listar fabricantes</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" value="insert" name="operacion" id="insertar" required/>
+                            <label class="form-check-label" for="insertar">Insertar nuevo fabricante</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" value="update" name="operacion" id="actualizar" required/>
+                            <label class="form-check-label" for="actualizar">Actualizar fabricante</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" value="delete" name="operacion" id="borrar"/>
+                            <label class="form-check-label" for="borrar">Borrar fabricante por código</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="codigo">Código del fabricante:</label>
+                        <input type="text" class="form-control" name="codigo" id="codigo"/>
+                    </div>
+                </fieldset>   
+                <button class="btn btn-primary btn-block" name="enviar" type="submit">Ejecutar</button>
+            </form>
+        </div>
+    
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
+```
+
+El archivo **bootstrap.min.css** está en el repositorio de GitHub. Descárgalo y copíalo en el directorio **webapp/css** de tu proyecto.
+
+___
+
+
 ## Configura tu proyecto para que soporte JSF.
 
 ![image](https://github.com/user-attachments/assets/9da1b01d-c880-4cd6-a7a8-33550a410a88)
@@ -270,9 +335,6 @@ Vamos a crear un snippet para facilitar el trabajo. Llama al snippet **facelet**
 ```
 ___
 
-El archivo **bootstrap.min.css** está en el repositorio de GitHub. Descárgalo y copíalo en el directorio **webapp/css** de tu proyecto.
-
-___
 
 Este es el resultado de la lista de fabricantes:
 
