@@ -341,8 +341,43 @@ Este es el resultado de la lista de fabricantes:
 ![image](https://github.com/user-attachments/assets/30cb4ef8-ff2b-4449-b5dc-7b89f04ed05e)
 
 
+# EJERCICIO 3: CRUD JPA de Fabricantes con JSF, Bootstrap y CDI
 
-# EJERCICIO 3: Migrar el ejercicio de la tienda JDBC a JPA
+Vamos a pasar de un modelo Singleton (artesanal) para obtener el EntityManager a usar CDI.
+
+___
+
+El archivo **beans.xml** debe contener lo siguiente:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Si no necesitas ninguna configuración especial, puedes omitir el archivo beans.xml o usar el archivo mínimo.
+Jakarta EE 10 asume bean-discovery-mode="annotated" por defecto si no se incluye beans.xml, 
+lo que es suficiente para la mayoría de los casos. -->
+<beans xmlns="https://jakarta.ee/xml/ns/jakartaee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/beans_4_0.xsd"
+       bean-discovery-mode="all">
+
+</beans>
+<!-- 
+bean-discovery-mode: Controla cómo se descubren los beans CDI en la aplicación.
+"all": Descubre todos los beans disponibles.
+"annotated": Solo descubre beans que estén anotados específicamente para CDI (@Dependent, @RequestScoped, etc.).
+"none": Desactiva la detección de beans.
+
+alternatives: Lista de clases que deben ser tratadas como alternativas, es decir, versiones alternativas de otros beans.
+interceptors: Define clases interceptoras que manejan la lógica adicional para métodos específicos.
+decorators: Especifica decoradores que agregan funcionalidad alrededor de otros beans.
+-->
+
+```
+
+
+
+
+# EJERCICIO 4: Migrar el ejercicio de la tienda JDBC a JPA
 
 Partimos de la solución JDBC que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao.
 
