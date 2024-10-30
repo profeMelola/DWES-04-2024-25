@@ -361,9 +361,9 @@ Este es el resultado de la lista de fabricantes:
 
 # EJERCICIO 3: CRUD JPA de Fabricantes con JSF, Bootstrap y CDI
 
-Añadimos al proyecto del ejercicio 2 la inyección de dependencias.
+Añadimos al proyecto del ejercicio 2 la inyección de dependencias a través de CDI.
 
-Vamos a pasar de un modelo Singleton (artesanal) para obtener el EntityManager a usar CDI.
+Vamos a pasar de un modelo Singleton (artesanal) para obtener el EntityManager a inyectar (@Inject).
 
 ___
 
@@ -392,9 +392,10 @@ bean-discovery-mode: Controla cómo se descubren los beans CDI en la aplicación
 ```
 ___
 
-Mantenemos la clase ManagerJPA, pero vamos a hacer una copia para convertirla a un CDI Bean. Esta nueva clase se llamará **ManagerJPA_CDI**
+1. Mantenemos la clase ManagerJPA, pero vamos a hacer una copia para convertirla a un CDI Bean. Esta nueva clase se llamará **ManagerJPA_CDI**
+2. Aprenderemos a usar nuevas anotaciones CDI.
+3. Modificaremos DAoJPAFabricante para inyectar el EntityManager.
 
-Aprenderemos a usar nuevas anotaciones CDI.
 
 # EJERCICIO 4: Migrar el ejercicio de la tienda JDBC a JPA.
 
