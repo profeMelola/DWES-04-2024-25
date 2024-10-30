@@ -232,12 +232,26 @@ Esta es la página de inicio:
 
 ![image](https://github.com/user-attachments/assets/a20db192-e40c-41c4-8c2f-171e8f25ab70)
 
+___
+
+Como práctica guiada, sigue las instrucciones de clase.
+
+Aprenderás a realizar las operaciones básicas CRUD usando JPA:
+- Insertar registro.
+- Actualizar registro.
+- Borrar registro.
+- Listar registros.
+
 
 # EJERCICIO 3: CRUD JPA de Fabricantes con JSF y Bootstrap
 
 ## Esta será la nueva página de inicio
 
 ![image](https://github.com/user-attachments/assets/61a46ea9-874f-46bf-82c2-6024ef2b38a6)
+
+___
+
+Puedes copiar el código html:
 
 ```
 <!DOCTYPE html>
@@ -307,7 +321,7 @@ ___
 
 ## Crea un facelet (página xhtml) para mostar el listado de fabricantes
 
-Vamos a crear un snippet para facilitar el trabajo. Llama al snippet **facelet** y copia lo siguiente:
+Vamos a **crear un snippet** para facilitar el trabajo. Llama al snippet **facelet** y copia lo siguiente:
 
 ```
 {
@@ -335,6 +349,10 @@ Vamos a crear un snippet para facilitar el trabajo. Llama al snippet **facelet**
 ```
 ___
 
+1. La página **fabricantes.xhtml** vamos a realizarla en clase paso a paso.
+2. Modificaremos el controlador (Servlet) para redirigir la respuesta a dicha página.
+
+___
 
 Este es el resultado de la lista de fabricantes:
 
@@ -342,6 +360,8 @@ Este es el resultado de la lista de fabricantes:
 
 
 # EJERCICIO 3: CRUD JPA de Fabricantes con JSF, Bootstrap y CDI
+
+Añadimos al proyecto del ejercicio 2 la inyección de dependencias.
 
 Vamos a pasar de un modelo Singleton (artesanal) para obtener el EntityManager a usar CDI.
 
@@ -361,23 +381,22 @@ lo que es suficiente para la mayoría de los casos. -->
        bean-discovery-mode="all">
 
 </beans>
+
 <!-- 
 bean-discovery-mode: Controla cómo se descubren los beans CDI en la aplicación.
 "all": Descubre todos los beans disponibles.
 "annotated": Solo descubre beans que estén anotados específicamente para CDI (@Dependent, @RequestScoped, etc.).
 "none": Desactiva la detección de beans.
-
-alternatives: Lista de clases que deben ser tratadas como alternativas, es decir, versiones alternativas de otros beans.
-interceptors: Define clases interceptoras que manejan la lógica adicional para métodos específicos.
-decorators: Especifica decoradores que agregan funcionalidad alrededor de otros beans.
 -->
 
 ```
+___
 
+Mantenemos la clase ManagerJPA, pero vamos a hacer una copia para convertirla a un CDI Bean. Esta nueva clase se llamará **ManagerJPA_CDI**
 
+Aprenderemos a usar nuevas anotaciones CDI.
 
-
-# EJERCICIO 4: Migrar el ejercicio de la tienda JDBC a JPA
+# EJERCICIO 4: Migrar el ejercicio de la tienda JDBC a JPA.
 
 Partimos de las especificaciones del ejercicio JDBC TiendaDAO que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao.
 
