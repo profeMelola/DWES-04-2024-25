@@ -242,17 +242,6 @@ Aprenderás a realizar las operaciones básicas CRUD usando JPA:
 - Borrar registro.
 - Listar registros.
 
-___
-
-## Observa que si intentamos borrar un fabricante que tiene productos asociados nos dará un error:
-
-![image](https://github.com/user-attachments/assets/1a6946e8-d5b6-4824-9e5b-8329726b048c)
-
-___
-
-**¿Qué harías para controlar esta situación?**
-
-<img src="https://github.com/user-attachments/assets/957071be-b7e4-4fe9-9c6e-c21e1f1292b8" height="100px"/>
 
 
 
@@ -408,6 +397,12 @@ ___
 1. Mantenemos la clase ManagerJPA, pero vamos a hacer una copia para convertirla a un CDI Bean. Esta nueva clase se llamará **ManagerJPA_CDI**
 2. Aprenderemos a usar nuevas anotaciones CDI.
 3. Modificaremos DAoJPAFabricante para inyectar el EntityManager.
+
+____
+
+## Observa que si intentamos borrar un fabricante que tiene productos asociados nos dará un error:
+
+![image](https://github.com/user-attachments/assets/1a6946e8-d5b6-4824-9e5b-8329726b048c)
 
 
 # EJERCICIO 4: Migrar el ejercicio de la tienda JDBC a JPA + JSF + CDI.
