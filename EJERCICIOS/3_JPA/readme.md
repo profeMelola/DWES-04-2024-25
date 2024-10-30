@@ -234,13 +234,19 @@ Esta es la página de inicio:
 
 ___
 
-Como práctica guiada, sigue las instrucciones de clase.
+## Como práctica guiada, sigue las instrucciones de clase.
 
 Aprenderás a realizar las operaciones básicas CRUD usando JPA:
 - Insertar registro.
 - Actualizar registro.
 - Borrar registro.
 - Listar registros.
+
+__
+
+## Observa que si intentamos borrar un fabricante que tiene productos asociados nos dará un error:
+
+![image](https://github.com/user-attachments/assets/1a6946e8-d5b6-4824-9e5b-8329726b048c)
 
 
 # EJERCICIO 3: CRUD JPA de Fabricantes con JSF y Bootstrap
