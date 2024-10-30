@@ -397,11 +397,11 @@ ___
 3. Modificaremos DAoJPAFabricante para inyectar el EntityManager.
 
 
-# EJERCICIO 4: Migrar el ejercicio de la tienda JDBC a JPA.
+# EJERCICIO 4: Migrar el ejercicio de la tienda JDBC a JPA + JSF + CDI.
 
 Partimos de las especificaciones del ejercicio JDBC TiendaDAO que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao.
 
-En base a lo aprendido en los ejercicios anteriores, implementa la solución completa JPA para administrar productos.
+En base a lo aprendido en los ejercicios anteriores, **implementa la solución completa JPA para administrar productos.**
 
 El listado de fabricantes debe salir dinámicamente según lo existente en la base de datos.
 
@@ -430,3 +430,10 @@ public class Producto{
     //private int codigo_fabricante;
     private Fabricante fabricante; // En lugar de int, aquí tienes el objeto Fabricante
 ```
+
+
+# EJERCICIO 5: amplía la aplicación web obtenida con el ejercicio 4 con lo aprendido hasta ahora... 
+
+- Cookies.
+- Gestión de sesión de usuario.
+- Filtros, listeners....
