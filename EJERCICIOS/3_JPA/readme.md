@@ -242,7 +242,7 @@ Aprenderás a realizar las operaciones básicas CRUD usando JPA:
 - Borrar registro.
 - Listar registros.
 
-__
+___
 
 ## Observa que si intentamos borrar un fabricante que tiene productos asociados nos dará un error:
 
