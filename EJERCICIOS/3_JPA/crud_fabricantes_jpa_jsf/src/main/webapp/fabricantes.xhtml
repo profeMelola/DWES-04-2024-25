@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Listado fabricantes</title>
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/bootstrap.min.css" />
+    </head>
+    <body class="container mt-4">
+        <h1 class="text-primary mb-4">Operacion - #{operacion} - realizada con éxito</h1>
+        <h2>Listado de fabricantes</h2>
+
+        <h:dataTable value="#{fabricantes}" var="f" styleClass="table table-striped table-bordered mt-3"
+            headerClass="table-primary" rowClasses="table-light,table-white">
+
+            <h:column>
+                <f:facet name="header">Codigo</f:facet>
+                #{f.codigo}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                #{f.nombre}
+            </h:column>
+        </h:dataTable>
+
+        <a href='#{request.contextPath}/index.html'>Volver</a>
+    </body>
+</html>
