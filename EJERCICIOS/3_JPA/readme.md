@@ -252,7 +252,7 @@ ___
 
 **¿Qué harías para controlar esta situación?**
 
-![image](https://github.com/user-attachments/assets/957071be-b7e4-4fe9-9c6e-c21e1f1292b8)
+<img src="https://github.com/user-attachments/assets/957071be-b7e4-4fe9-9c6e-c21e1f1292b8" height="100px"/>
 
 
 
