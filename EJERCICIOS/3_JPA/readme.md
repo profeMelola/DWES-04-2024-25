@@ -405,7 +405,7 @@ ____
 ![image](https://github.com/user-attachments/assets/1a6946e8-d5b6-4824-9e5b-8329726b048c)
 
 
-# EJERCICIO 4: Migrar el ejercicio de la tienda JDBC a JPA + JSF + CDI.
+# EJERCICIO 4: CRUD de Productos (JPA + JSF + CDI).
 
 Partimos de las especificaciones del ejercicio JDBC TiendaDAO que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao.
 
