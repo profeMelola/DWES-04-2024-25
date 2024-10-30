@@ -379,7 +379,7 @@ decorators: Especifica decoradores que agregan funcionalidad alrededor de otros 
 
 # EJERCICIO 4: Migrar el ejercicio de la tienda JDBC a JPA
 
-Partimos de la solución JDBC que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao.
+Partimos de las especificaciones del ejercicio JDBC TiendaDAO que está en https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/1_TiendaDAO/tienda_dao.
 
 En base a lo aprendido en los ejercicios anteriores, implementa la solución completa JPA para administrar productos.
 
