@@ -248,6 +248,13 @@ ___
 
 ![image](https://github.com/user-attachments/assets/1a6946e8-d5b6-4824-9e5b-8329726b048c)
 
+___
+
+**¿Qué harías para controlar esta situación?**
+
+![image](https://github.com/user-attachments/assets/957071be-b7e4-4fe9-9c6e-c21e1f1292b8)
+
+
 
 # EJERCICIO 3: CRUD JPA de Fabricantes con JSF y Bootstrap
 
