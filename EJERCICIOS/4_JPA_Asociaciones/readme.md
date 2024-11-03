@@ -165,6 +165,8 @@ public class Book {
 
 ## Uso de las entidades
 
+Simplemente crea un controlador web que reciba una petición y ejecute el siguiente código:
+
 ```
 Author author = new Author("Gabriel García Márquez");
 
@@ -179,3 +181,5 @@ author.addBook(book2);
 entityManager.persist(author);
 
 ```
+
+Comprueba en la base de datos que se han dado de alta los registros correspondientes.
