@@ -1,4 +1,4 @@
-# Trabajando con la base de datos TIENDA. Práctica guiada: tienda CRUD DAO
+# JDBC - Trabajando con la base de datos TIENDA. Práctica guiada: tienda CRUD DAO
 
 ![image](https://github.com/user-attachments/assets/f28b7d19-07a4-403f-aae8-eeecfd1fa153)
 
