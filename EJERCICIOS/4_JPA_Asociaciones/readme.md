@@ -1,6 +1,10 @@
 # Asociaciones @OneToMany y @ManyToOne
 
-El objetivo es probar a persistir un autor y que se guarden automáticamente en la base de datos los libros de dicho autor, debido a la cascada configurada.
+El objetivo es probar a persistir un autor y que se guarden automáticamente en la base de datos los libros de dicho autor.
+
+La clave foránea (FOREIGN KEY) en author_id conecta cada libro a un autor específico de la tabla Author. 
+
+La restricción ON DELETE CASCADE implica que si se elimina un autor de la tabla Author, todos los libros asociados con ese autor en la tabla Book también serán eliminados automáticamente.
 
 
 ## Script de base de datos
