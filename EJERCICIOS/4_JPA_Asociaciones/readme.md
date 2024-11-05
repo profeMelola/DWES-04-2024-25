@@ -299,4 +299,10 @@ public interface CrudRepository<T> {
 
 Implementa lo necesario en base a estas capturas:
 
+
 ![image](https://github.com/user-attachments/assets/3d536a9a-f0dd-4918-9412-688582fc2cb1)
+
+___
+
+![image](https://github.com/user-attachments/assets/e0ee66a2-8fc4-4b1b-a57e-5123d2779fac)
+
