@@ -130,6 +130,9 @@ public class Book {
     @JoinColumn(name = "author_id")
     private Author author;
 
+    @Temporal(TemporalType.DATE)
+    private Date publicationDate;  // Nuevo campo para la fecha de publicación
+
     // Constructores
     public Book() {}
 
@@ -160,6 +163,14 @@ public class Book {
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    public Date getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPublicationDate(Date publicationDate) {
+        this.publicationDate = publicationDate;
     }
 }
 
