@@ -245,7 +245,9 @@ public class Book {
 
 ## 4. Uso de las entidades
 
-Simplemente crea un controlador web que reciba una petición y basándote en el siguiente código realice la persistencia del autor y sus libros:
+En base a lo aprendido en clase debes listar productos y salvar el nuevo autor con sus libros.
+
+Observa el siguiente código que realiza la persistencia del autor y sus libros: 
 
 ```
 // Suponiendo que ya tienes una instancia de EntityManager
@@ -273,4 +275,8 @@ entityManager.persist(newAuthor);
 
 ```
 
-Comprueba en la base de datos que se han dado de alta los registros correspondientes.
+No hace falta crear un formulario para especificar nombre de autor y libros.
+
+Implementa lo necesario en base a estas capturas:
+
+![image](https://github.com/user-attachments/assets/3d536a9a-f0dd-4918-9412-688582fc2cb1)
