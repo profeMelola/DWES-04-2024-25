@@ -1,4 +1,4 @@
-# Asociaciones @OneToMany y @ManyToOne
+# EJERCICIO: Asociaciones @OneToMany y @ManyToOne
 
 El objetivo es probar a persistir un autor y que se guarden automáticamente en la base de datos los libros de dicho autor.
 
@@ -7,9 +7,9 @@ La clave foránea (FOREIGN KEY) en author_id conecta cada libro a un autor espec
 La restricción ON DELETE CASCADE implica que si se elimina un autor de la tabla Author, todos los libros asociados con ese autor en la tabla Book también serán eliminados automáticamente.
 
 
-## Base de datos
+## 1. Base de datos
 
-### Forma 1 (la que vamos a hacer en clase)
+### Forma 1: usar un schema ya creado (la que vamos a usar en clase)
 
 Se proporciona la base de datos. Descárgala de este repositorio **libros.mv.db**
 
@@ -19,7 +19,7 @@ Por tanto copia la base de datos en tu directorio home.
 
 Esta base de datos tiene las tablas, datos y cambiada la contraseña del usuario sa.
 
-### Forma 2 (NO hacer en clase!!!!)
+### Forma 2: crear el schema de cero (NO usar en clase!!!!)
 
 Para crear las tablas con datos para las pruebas debes crear un nuevo schema de base de datos en H2.
 
@@ -61,7 +61,7 @@ INSERT INTO Book (title, author_id, publication_date) VALUES ('La vuelta al día
 
 ```
 
-## Entidades
+## 2.Entidades
 
 Crea una aplicación web que permita trabajar con estas dos entidades:
 
@@ -201,7 +201,7 @@ public class Book {
 - **@ManyToOne:** indica que muchos libros pueden estar asociados a un solo autor.
 - **@JoinColumn(name = "author_id"):** define el nombre de la columna en la base de datos que hará la referencia al id del autor.
 
-## Uso de las entidades
+## 3. Uso de las entidades
 
 Simplemente crea un controlador web que reciba una petición y basándote en el siguiente código realice la persistencia del autor y sus libros:
 
