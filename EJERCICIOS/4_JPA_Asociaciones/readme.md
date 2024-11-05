@@ -277,6 +277,26 @@ entityManager.persist(newAuthor);
 
 No hace falta crear un formulario para especificar nombre de autor y libros.
 
+Deberás cambiar la interface CrudRepository de la siguiente manera:
+
+```
+package es.daw.web.repositories;
+
+import java.util.Optional;
+import java.util.Set;
+
+import es.daw.web.exceptions.JPAException;
+
+public interface CrudRepository<T> {
+    
+    Set<T> select() throws JPAException;
+    Optional<T> selectById(int id) throws JPAException;
+    void deleteById(int id) throws JPAException;
+    void save(T t) throws JPAException;
+
+}
+```
+
 Implementa lo necesario en base a estas capturas:
 
 ![image](https://github.com/user-attachments/assets/3d536a9a-f0dd-4918-9412-688582fc2cb1)
