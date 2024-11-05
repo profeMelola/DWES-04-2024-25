@@ -128,10 +128,6 @@ public class Author {
         books = new HashSet<>();
     }
     
-    public Author(String name) {
-        this.name = name;
-    }
-
     // Getters y setters
     public Long getId() {
         return id;
@@ -199,10 +195,6 @@ public class Book {
 
     // Constructores
     public Book() {}
-
-    public Book(String title) {
-        this.title = title;
-    }
 
     // Getters y setters
     public Long getId() {
