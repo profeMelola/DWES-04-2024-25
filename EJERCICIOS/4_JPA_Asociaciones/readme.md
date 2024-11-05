@@ -296,5 +296,6 @@ Implementa lo necesario en base a estas capturas:
 
 ___
 
-![image](https://github.com/user-attachments/assets/e0ee66a2-8fc4-4b1b-a57e-5123d2779fac)
+![image](https://github.com/user-attachments/assets/9101d3b0-de3a-4779-a7a5-d7f1b6f1c883)
+
 
