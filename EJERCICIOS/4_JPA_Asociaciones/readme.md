@@ -79,6 +79,28 @@ Edita el archivo de configuración **standalone.xml** y añade el siguiente data
 
 Reinicia Wildfly.
 
+## 3.persistence.xml
+
+Configura adecuadamente este fichero con el nombre del DataSource recién creado y las entidades.
+
+```
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+    <persistence-unit name="LibrosDS" transaction-type="JTA">
+        <jta-data-source>java:/LibrosDS</jta-data-source>
+
+        <class>es.daw.web.entities.Author</class>
+        <class>es.daw.web.entities.Book</class>
+        
+        <properties>
+            <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
+        </properties>
+    </persistence-unit>
+</persistence>
+```
+
 ## 3.Entidades
 
 Crea una aplicación web que permita trabajar con estas dos entidades:
