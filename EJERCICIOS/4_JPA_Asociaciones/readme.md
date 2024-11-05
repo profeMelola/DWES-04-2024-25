@@ -109,7 +109,10 @@ Crea una aplicación web que permita trabajar con estas dos entidades:
 
 ```
 import jakarta.persistence.*;
+
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Author {
@@ -164,6 +167,7 @@ public class Author {
     }
 }
 
+
 ```
 
 - **@OneToMany(mappedBy = "author"):** significa que un autor tiene una lista de libros. La relación es bidireccional y mappedBy especifica que la entidad Book tiene la clave foránea author en su clase.
@@ -175,6 +179,8 @@ ____
 **Book:**
 
 ```
+import java.sql.Date;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -186,11 +192,13 @@ public class Book {
 
     private String title;
 
+    // Muchos libros pueden tener el mismo autor....
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;
 
     @Temporal(TemporalType.DATE)
+    @Column(name="publication_date")
     private Date publicationDate;  // Nuevo campo para la fecha de publicación
 
     // Constructores
