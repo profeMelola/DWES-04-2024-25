@@ -61,6 +61,22 @@ INSERT INTO Book (title, author_id, publication_date) VALUES ('La vuelta al día
 
 ```
 
+## 3. Datasource
+
+Configura el nuevo Datasource.
+
+Edita el archivo de configuración **standalone.xml** y añade el siguiente datasource:
+
+```
+                <datasource jndi-name="java:/LibrosDS" pool-name="LibrosDS">
+                    <connection-url> jdbc:h2:~/libros;AUTO_SERVER=TRUE</connection-url>
+                    <driver-class>org.h2.Driver</driver-class>
+                    <driver>h2</driver>
+                    <security user-name="sa" password="sa"/>
+                </datasource>
+
+```
+
 ## 2.Entidades
 
 Crea una aplicación web que permita trabajar con estas dos entidades:
