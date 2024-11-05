@@ -121,7 +121,7 @@ public class Author {
     private String name;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Book> books;
+    private Set<Book> books;
 
     // Constructores
     public Author() {
