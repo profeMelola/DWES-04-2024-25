@@ -77,6 +77,8 @@ Edita el archivo de configuración **standalone.xml** y añade el siguiente data
 
 ```
 
+Reinicia Wildfly.
+
 ## 3.Entidades
 
 Crea una aplicación web que permita trabajar con estas dos entidades:
