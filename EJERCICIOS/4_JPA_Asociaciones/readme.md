@@ -298,4 +298,9 @@ ___
 
 ![image](https://github.com/user-attachments/assets/9101d3b0-de3a-4779-a7a5-d7f1b6f1c883)
 
+___
+
+Después de dar de alta el nuevo autor y sus libros:
+
+![image](https://github.com/user-attachments/assets/465bda08-307e-4042-be2a-10418887e367)
 
