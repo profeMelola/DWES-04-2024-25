@@ -7,9 +7,31 @@ La clave foránea (FOREIGN KEY) en author_id conecta cada libro a un autor espec
 La restricción ON DELETE CASCADE implica que si se elimina un autor de la tabla Author, todos los libros asociados con ese autor en la tabla Book también serán eliminados automáticamente.
 
 
-## Script de base de datos
+## Base de datos
 
-Para crear las tablas con datos para las pruebas
+### Forma 1 (la que vamos a hacer en clase)
+
+Se proporciona la base de datos. Descárgala de este repositorio **libros.mv.db**
+
+La url de conexión será: **jdbc:h2:~/libros;AUTO_SERVER=TRUE**
+
+Por tanto copia la base de datos en tu directorio home.
+
+Esta base de datos tiene las tablas, datos y cambiada la contraseña del usuario sa.
+
+### Forma 2 (NO hacer en clase!!!!)
+
+Para crear las tablas con datos para las pruebas debes crear un nuevo schema de base de datos en H2.
+
+Cambia la constraseña del usuario sa para poder dar de alta el Datasource en Wildfly (standalone.xml):
+
+
+```
+ALTER USER sa SET PASSWORD 'sa';
+```
+
+Este es el script de la base de datos para crear las tablas y datos:
+
 
 ```
 -- Crear la tabla de autores
