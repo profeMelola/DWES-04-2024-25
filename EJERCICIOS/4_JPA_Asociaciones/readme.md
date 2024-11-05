@@ -181,20 +181,31 @@ public class Book {
 
 ## Uso de las entidades
 
-Simplemente crea un controlador web que reciba una petición y ejecute el siguiente código:
+Simplemente crea un controlador web que reciba una petición y basándote en el siguiente código realice la persistencia del autor y sus libros:
 
 ```
-Author author = new Author("Gabriel García Márquez");
+// Suponiendo que ya tienes una instancia de EntityManager
+EntityManager entityManager = ...;
 
-Book book1 = new Book("Cien años de soledad");
-Book book2 = new Book("El amor en los tiempos del cólera");
+// Crear un nuevo autor usando el constructor vacío
+Author newAuthor = new Author();
+newAuthor.setName("Jorge Luis Borges");
 
-// Relacionamos los libros con el autor
-author.addBook(book1);
-author.addBook(book2);
+// Crear nuevos libros usando el constructor vacío
+Book book1 = new Book();
+book1.setTitle("Ficciones");
+book1.setPublicationDate(Date.valueOf("1944-10-01")); // Fecha de publicación (opcional)
 
-// Guardamos el autor, automáticamente también guarda los libros asociados
-entityManager.persist(author);
+Book book2 = new Book();
+book2.setTitle("El Aleph");
+book2.setPublicationDate(Date.valueOf("1949-06-01")); // Fecha de publicación (opcional)
+
+// Establecemos la relación entre el autor y los libros
+newAuthor.addBook(book1);
+newAuthor.addBook(book2);
+
+// Persistimos el nuevo autor (y sus libros asociados)
+entityManager.persist(newAuthor);
 
 ```
 
