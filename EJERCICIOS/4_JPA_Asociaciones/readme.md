@@ -124,7 +124,9 @@ public class Author {
     private List<Book> books;
 
     // Constructores
-    public Author() {}
+    public Author() {
+        books = new HashSet<>();
+    }
     
     public Author(String name) {
         this.name = name;
@@ -147,11 +149,11 @@ public class Author {
         this.name = name;
     }
 
-    public List<Book> getBooks() {
+    public Set<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(List<Book> books) {
+    public void setBooks(Set<Book> books) {
         this.books = books;
     }
 
