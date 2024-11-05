@@ -61,7 +61,7 @@ INSERT INTO Book (title, author_id, publication_date) VALUES ('La vuelta al día
 
 ```
 
-## 3. Datasource
+## 2. Datasource
 
 Configura el nuevo Datasource.
 
@@ -77,7 +77,7 @@ Edita el archivo de configuración **standalone.xml** y añade el siguiente data
 
 ```
 
-## 2.Entidades
+## 3.Entidades
 
 Crea una aplicación web que permita trabajar con estas dos entidades:
 
@@ -217,7 +217,7 @@ public class Book {
 - **@ManyToOne:** indica que muchos libros pueden estar asociados a un solo autor.
 - **@JoinColumn(name = "author_id"):** define el nombre de la columna en la base de datos que hará la referencia al id del autor.
 
-## 3. Uso de las entidades
+## 4. Uso de las entidades
 
 Simplemente crea un controlador web que reciba una petición y basándote en el siguiente código realice la persistencia del autor y sus libros:
 
