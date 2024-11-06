@@ -150,6 +150,16 @@ Añadimos el facelet **login.xhtml**:
 
 ```
 
+Dependiendo del usuario, obtendremos diferentes opciones en la lista desplegable:
+
+![image](https://github.com/user-attachments/assets/2b4994f3-15eb-4f6a-8895-d722f2442e20)
+
+___
+
+![image](https://github.com/user-attachments/assets/400b0435-c4a5-4122-8215-9fd009ea3726)
+
+
+
 ## Creamos el Bean CDI correspondiente
 
 Partimos de esta estructura que tendremos que completar:
