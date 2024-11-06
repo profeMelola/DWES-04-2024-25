@@ -36,6 +36,9 @@ Las passwords están en texto plano por simplicidad, pero en producción deberí
 
 Partimos del proyecto del ejercicio https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/4_JPA_Asociaciones#ejercicio-1-asociaciones-onetomany-y-manytoone
 
+![image](https://github.com/user-attachments/assets/c66d8b70-769c-4d98-ba69-7c28d8843a39)
+
+
 Añadimos el facelet **login.xhtml**:
 
 ```
