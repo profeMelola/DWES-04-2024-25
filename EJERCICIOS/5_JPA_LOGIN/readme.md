@@ -1,8 +1,10 @@
 # FASE I: Añadir un sistema de login y autorización (sin algoritmo de hashing seguro)
 
-JAAS (Java Authentication an Authorization Service)
+- JPA + JSF + CDI
+- No usuaremos un controlador Servlet para comprobar el login
+- JAAS (Java Authentication an Authorization Service)
 
-## 1. Nuevas tablas en H2
+## Nuevas tablas en la base de datos del ejercicio de libros (LibrosDS)
 
 Para gestionar los usuarios y roles, necesitaremos dos tablas adicionales en tu base de datos H2, una para almacenar los usuarios y otra para los roles asociados a cada usuario.
 
@@ -30,7 +32,187 @@ INSERT INTO ROLES (username, role_name) VALUES ('cliente', 'CLIENTE');
 
 Las passwords están en texto plano por simplicidad, pero en producción deberías usar hashing seguro como **BCrypt.**
 
-## 2. Configurar el security-domain en WildFly
+## Proyecto JPA_LOGIN
+
+Partimos del proyecto del ejercicio https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/4_JPA_Asociaciones#ejercicio-1-asociaciones-onetomany-y-manytoone
+
+Añadimos el facelet **login.xhtml**:
+
+```
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Login</title>
+    <style>
+        /* Estilos generales de página */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+
+        /* Contenedor del formulario */
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Título del formulario */
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Estilos de etiqueta y campo */
+        .login-container label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        /* Efecto hover y focus */
+        .login-container input[type="text"]:focus,
+        .login-container input[type="password"]:focus {
+            border-color: #5c9aed;
+            outline: none;
+        }
+
+        /* Botón de login */
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #5c9aed;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .login-container button:hover {
+            background-color: #4a86d0;
+        }
+
+        /* Estilos de mensaje de error */
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</h:head>
+<h:body>
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <h:form>
+            <h:outputLabel for="username" value="Username:" />
+            <h:inputText id="username" value="#{loginBean.username}" required="true" requiredMessage="Username is required" />
+            <h:message for="username" styleClass="error-message" />
+
+            <h:outputLabel for="password" value="Password:" />
+            <h:inputSecret id="password" value="#{loginBean.password}" required="true" requiredMessage="Password is required" />
+            <h:message for="password" styleClass="error-message" />
+
+            <h:commandButton value="Login" action="#{loginBean.login}" />
+        </h:form>
+    </div>
+</h:body>
+</html>
+
+```
+
+## Creamos el Bean CDI correspondiente
+
+Partimos de esta estructura que tendremos que completar:
+
+```
+package es.daw.web.cdi;
+
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Named;
+import java.io.Serializable;
+
+@Named("loginBean")
+@SessionScoped
+public class LoginBean implements Serializable {
+    private String username;
+    private String password;
+    private boolean isAdmin;
+
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+
+    public boolean isAdmin() { return isAdmin; }
+
+    /**
+     * Establece si el usuario es administrador y redirige al usuario a la página main.xhtml si la validación es correcta
+     * @return
+     */
+    public String login() {
+        System.out.println("\n [LOGINBEAN] login...............");
+        if (validateInputs()) {
+            // Verificamos si el usuario es admin
+            isAdmin = "admin".equals(username);
+
+            // Redirigimos a la página principal
+            // JSF realiza una nueva solicitud HTTP hacia main.xhtml.
+            //Cambia la URL en la barra del navegador a main.xhtml y hace que la página se recargue completamente.
+            return "main?faces-redirect=true"; 
+        }
+        return null; // Permanece en la misma página si falla la validación
+    }
+
+    private boolean validateInputs() {
+        isAdmin = true;
+        return true;
+    }
+
+    public boolean canSave() {
+        return isAdmin;
+    }
+
+    public boolean canSelect() {
+        return true; // Todos los usuarios pueden seleccionar
+    }
+}
+
+
+```
+
+## Creamos los Entity Bean necesarios
+
+Necesitamos comprobar si el usuario y password introducidos son los que existen en la base de datos....
+
+## Configurar el security-domain en WildFly
 
 Debes configurar un security-domain en el archivo de configuración de WildFly (standalone.xml) para manejar la autenticación. 
 
