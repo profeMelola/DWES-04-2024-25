@@ -1,4 +1,4 @@
-# EJERCICIO: Asociaciones @OneToMany y @ManyToOne
+# EJERCICIO 1: Asociaciones @OneToMany y @ManyToOne
 
 El objetivo es probar a persistir un autor y que se guarden automáticamente en la base de datos los libros de dicho autor.
 
@@ -326,4 +326,14 @@ ___
 Después de dar de alta el nuevo autor y sus libros:
 
 ![image](https://github.com/user-attachments/assets/465bda08-307e-4042-be2a-10418887e367)
+
+
+# EJERCICIO2: Asociaciones @OneToMany y @ManyToOne (borrado)
+
+Amplía el ejercicio 1 para borrar un autor y comprobar que se borran todos los libros asociados.
+
+Más operaciones que podrían hacerse:
+- Borrar libros existentes.
+- Modificar autores.
+- Modificar libros.
 
