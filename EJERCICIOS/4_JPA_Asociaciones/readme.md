@@ -325,12 +325,28 @@ ___
 
 Después de dar de alta el nuevo autor y sus libros:
 
+
+
+___
+
 ![image](https://github.com/user-attachments/assets/465bda08-307e-4042-be2a-10418887e367)
 
 
-# EJERCICIO2: Asociaciones @OneToMany y @ManyToOne (borrado)
+___
 
-Amplía el ejercicio 1 para borrar un autor y comprobar que se borran todos los libros asociados.
+Implementa en el facelet de salida (libros.xhtml) la lógica para que dependiendo de la opción muestre la lista o el mensaje de que el autor y sus libros se han dado de alta correctamente:
+
+![image](https://github.com/user-attachments/assets/ecf74a45-748d-442f-857d-4951ce0887e7)
+
+___
+
+Mejora el ejercicio para que la lista de libros salgan en orden de id descendente.
+
+
+
+# EJERCICIO2: ampliación del ejercicio 1
+
+Amplía el ejercicio 1 para **borrar un autor y comprobar que se borran todos los libros asociados.**
 
 Más operaciones que podrían hacerse:
 - Borrar libros existentes.
