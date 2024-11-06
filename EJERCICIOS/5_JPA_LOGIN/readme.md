@@ -101,7 +101,7 @@ Añadimos el facelet **login.xhtml**:
         }
 
         /* Botón de login */
-        .login-container button {
+        .login-container input[type="submit"] {
             width: 100%;
             padding: 12px;
             background-color: #5c9aed;
@@ -115,7 +115,7 @@ Añadimos el facelet **login.xhtml**:
             margin-top: 15px;
         }
 
-        .login-container button:hover {
+        .login-container input[type="submit"]:hover {
             background-color: #4a86d0;
         }
 
