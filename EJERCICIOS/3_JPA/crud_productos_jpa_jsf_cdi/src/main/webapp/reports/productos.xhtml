@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Listado productos</title>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/bootstrap.min.css" />
+</head>
+<body class="container mt-4">
+    <h1 class="text-primary mb-4">Operación - #{operacion}- realizada con éxito</h1>
+    <h2>Listado de productos</h2>
+
+    <h:dataTable value="#{productos}" var="p" styleClass="table table-striped table-bordered mt-3"
+    headerClass="table-primary" rowClasses="table-light,table-white">
+
+        <h:column>
+            <f:facet name="header">Codigo</f:facet>
+            #{p.codigo}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Nombre</f:facet>
+            #{p.nombre}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Precio</f:facet>
+            #{p.precio}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Fabricante</f:facet>
+            #{p.fabricante.nombre}
+        </h:column>
+
+    </h:dataTable>
+
+    <a href="#{request.contextPath}/forms/formProducto.xhtml" class="btn btn-secondary mt-4">Volver</a>
+
+</body>
+</html>

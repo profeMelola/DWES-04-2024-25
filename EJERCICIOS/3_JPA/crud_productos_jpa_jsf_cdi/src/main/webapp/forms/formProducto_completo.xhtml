@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Administrar Productos</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />        
+</h:head>
+
+<h:body>
+    <h1>ADMINISTRAR PRODUCTOS</h1>
+    <h:form>
+        <h:panelGrid columns="2" styleClass="fieldset-principal">
+            <f:facet name="header">
+                <h:outputText value="Datos del producto" />
+            </f:facet>
+
+            <h:outputLabel for="nombre" value="Nombre:" />
+            <h:inputText id="nombre" value="#{productoBean.nombre}" />
+
+            <h:outputLabel for="precio" value="Precio:" />
+            <h:inputText id="precio" value="#{productoBean.precio}" />
+
+            <h:outputLabel for="codigoFabricante" value="Fabricantes:" />
+            <h:selectOneMenu id="codigoFabricante" value="#{productoBean.codigoFabricante}">
+                <f:selectItems value="#{fabricanteBean.fabricantes}" var="fabricante"
+                               itemValue="#{fabricante.codigo}"
+                               itemLabel="#{fabricante.nombre}" />
+            </h:selectOneMenu>
+        </h:panelGrid>
+
+        <h:panelGrid columns="2" styleClass="fieldset-principal">
+            <f:facet name="header">
+                <h:outputText value="Operaciones" />
+            </f:facet>
+
+            <h:selectOneRadio id="operacion" value="#{productoBean.operacion}" required="true">
+                <f:selectItem itemValue="select" itemLabel="Listar productos" />
+                <f:selectItem itemValue="insert" itemLabel="Insertar nuevo producto con todos los campos" />
+                <f:selectItem itemValue="update" itemLabel="Actualizar nombre del producto" />
+                <f:selectItem itemValue="delete" itemLabel="Borrar por código de producto" />
+            </h:selectOneRadio>
+
+            <h:outputLabel for="codigo" value="Código del producto (actualizar/borrar):" />
+            <h:inputText id="codigo" value="#{productoBean.codigo}" />
+        </h:panelGrid>
+
+        <h:commandButton value="Ejecutar controlador" action="#{productoBean.ejecutarAccion}" />
+    </h:form>
+    <p>
+        <h:link outcome="/index" styleClass="custom-rounded-link">
+            <h:outputText value="Volver" />
+        </h:link>
+    </p>    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</h:body>
+</html>
+
