@@ -178,7 +178,6 @@ public class LoginBean implements Serializable {
      * @return
      */
     public String login() {
-        System.out.println("\n [LOGINBEAN] login...............");
         if (validateInputs()) {
             // Verificamos si el usuario es admin
             isAdmin = "admin".equals(username);
@@ -192,7 +191,8 @@ public class LoginBean implements Serializable {
     }
 
     private boolean validateInputs() {
-        isAdmin = true;
+        if (username.equalsIgnoreCase("admin"))
+            isAdmin = true;
         return true;
     }
 
@@ -204,7 +204,6 @@ public class LoginBean implements Serializable {
         return true; // Todos los usuarios pueden seleccionar
     }
 }
-
 
 ```
 
