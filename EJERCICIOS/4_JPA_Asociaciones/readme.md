@@ -344,7 +344,7 @@ Mejora el ejercicio para que la lista de libros salgan en orden de id descendent
 
 
 
-# EJERCICIO2: ampliación del ejercicio 1
+# EJERCICIO 2: ampliación del ejercicio 1
 
 Amplía el ejercicio 1 para **borrar un autor y comprobar que se borran todos los libros asociados.**
 
