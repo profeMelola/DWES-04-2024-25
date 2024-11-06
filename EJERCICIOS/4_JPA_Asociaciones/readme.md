@@ -60,6 +60,21 @@ INSERT INTO Book (title, author_id, publication_date) VALUES ('Rayuela', 2, DATE
 INSERT INTO Book (title, author_id, publication_date) VALUES ('La vuelta al día en ochenta mundos', 2, DATE '1970-10-01');
 
 ```
+___
+
+```
+                        
+                        
+                        +------------------+
+                        |    Book          |
++-----------+           |------------------|
+|  Author   |           | id (PK)          |
+|-----------|      1,n  | title            |
+| id (PK)   | <-------- | author_id (FK)   |
+| name      | 1,1       | publication_date |
++-----------+           +------------------+
+
+```
 
 ## 2. Datasource
 
