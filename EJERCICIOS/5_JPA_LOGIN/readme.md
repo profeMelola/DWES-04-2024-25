@@ -232,7 +232,7 @@ Usa el módulo Database para conectar con H2 y autenticar a los usuarios.
 
 ```
 
-## 3. Configurar en web.xml las restricciones de seguridad
+## Configurar en web.xml las restricciones de seguridad
 
 ```
 <!-- Configuración de seguridad -->
@@ -275,7 +275,7 @@ En este ejemplo:
 - Los usuarios con rol ADMIN pueden acceder a URLs que empiezan con /admin/*.
 - Los usuarios CLIENTE y ADMIN pueden acceder a URLs que empiezan con /client/*.
 
-## 4. Añadir la lógica de seguridad en las páginas y componentes
+## Añadir la lógica de seguridad en las páginas y componentes
 
 Asegúrate de que tus páginas JSP o servlets solo muestren contenido según el rol del usuario. 
 
