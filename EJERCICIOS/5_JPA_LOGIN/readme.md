@@ -259,7 +259,13 @@ public class LoginBean implements Serializable {
 
 ## Creamos los Entity Bean necesarios
 
-Necesitamos comprobar si el usuario y password introducidos son los que existen en la base de datos....
+Practicaremos las **relaciones @ManyToMany**
+
+Necesitamos:
+
+     1. Verificar si el usuario existe en la base de datos (en la tabla USERS).
+     2. Verificar que la contraseña coincida (aunque las contraseñas nunca deberían guardarse en texto plano en producción, aquí se asume que la contraseña está en texto plano).
+     3. Verificar si el usuario tiene el rol adecuado (admin o cliente) en la tabla
 
 ## Completar la lógica de negocio
 
