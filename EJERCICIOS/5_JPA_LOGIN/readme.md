@@ -2,7 +2,7 @@
 
 - JPA + JSF + CDI
 - No usuaremos un controlador Servlet para comprobar el login
-- JAAS (Java Authentication an Authorization Service)
+
 
 ## Nuevas tablas en la base de datos del ejercicio de libros (LibrosDS)
 
@@ -224,6 +224,9 @@ public class LoginBean implements Serializable {
 
 Necesitamos comprobar si el usuario y password introducidos son los que existen en la base de datos....
 
+
+# FASE II: JAAS (Java Authentication an Authorization Service)
+
 ## Configurar el security-domain en WildFly
 
 Debes configurar un security-domain en el archivo de configuración de WildFly (standalone.xml) para manejar la autenticación. 
@@ -329,7 +332,7 @@ public class AdminServlet extends HttpServlet {
 
 ```
 
-# FASE II: con BCrypt...
+# FASE IIi: con BCrypt...
 
 ```
 <dependency>
