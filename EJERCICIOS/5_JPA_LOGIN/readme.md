@@ -9,50 +9,48 @@
 Para gestionar los usuarios y roles, necesitaremos dos tablas adicionales en tu base de datos libros, una para almacenar los usuarios y otra para los roles asociados a cada usuario.
 
 ```
--- Tabla de usuarios
+-- Crear tabla de usuarios
 CREATE TABLE users (
-    user_id INT PRIMARY KEY AUTO_INCREMENT
-    username VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL
+    user_id INT PRIMARY KEY AUTO_INCREMENT,  -- ID de usuario autoincremental
+    username VARCHAR(50) UNIQUE NOT NULL,  -- Nombre de usuario único
+    password VARCHAR(255) NOT NULL  -- Contraseña no nula
 );
 
--- Tabla de roles
+-- Crear tabla de roles
 CREATE TABLE roles (
-    role_id INT PRIMARY KEY AUTO_INCREMENT,
-    role_name VARCHAR(50) NOT NULL UNIQUE
+    role_id INT PRIMARY KEY AUTO_INCREMENT,  -- ID de rol autoincremental
+    role_name VARCHAR(50) NOT NULL UNIQUE  -- Nombre de rol único
 );
 
--- Tabla de relación entre usuarios y roles
+-- Crear tabla de relación entre usuarios y roles
 CREATE TABLE user_roles (
-    user_id INT,
-    role_id INT,
-    PRIMARY KEY (user_id, role_id),
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (role_id) REFERENCES roles(role_id) ON DELETE CASCADE
+    user_id INT,  -- ID de usuario
+    role_id INT,  -- ID de rol
+    PRIMARY KEY (user_id, role_id),  -- Clave compuesta
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,  -- Relación con usuarios
+    FOREIGN KEY (role_id) REFERENCES roles(role_id) ON DELETE CASCADE  -- Relación con roles
 );
 
-
--- Insertamos usuarios
+-- Insertar usuarios
 INSERT INTO users (username, password) VALUES ('admin', 'adminpass');
 INSERT INTO users (username, password) VALUES ('cliente', 'clientepass');
 INSERT INTO users (username, password) VALUES ('visitante', 'visitantepass');
 
+-- Insertar roles
+INSERT INTO roles (role_name) VALUES ('ADMIN');
+INSERT INTO roles (role_name) VALUES ('USER');
+INSERT INTO roles (role_name) VALUES ('CLIENTE');
 
--- Asignamos roles (múltiples roles para el usuario 'admin')
-INSERT INTO ROLES (username, role_name) VALUES ('admin', 'ADMIN');
-INSERT INTO ROLES (username, role_name) VALUES ('admin', 'USER');
-INSERT INTO ROLES (username, role_name) VALUES ('cliente', 'CLIENTE');
+-- Asignación de roles a admin_user (ID = 1)
+INSERT INTO user_roles (user_id, role_id) VALUES (1, 1);  -- Rol ADMIN
+INSERT INTO user_roles (user_id, role_id) VALUES (1, 2);  -- Rol USER
 
--- Asignación de roles a admin_user
-INSERT INTO user_roles (user_id, role_id) VALUES (1, 1); -- ADMIN
-INSERT INTO user_roles (user_id, role_id) VALUES (1, 2); -- USER
+-- Asignación de roles a cliente_user (ID = 2)
+INSERT INTO user_roles (user_id, role_id) VALUES (2, 2);  -- Rol USER
+INSERT INTO user_roles (user_id, role_id) VALUES (2, 3);  -- Rol CLIENTE
 
--- Asignación de roles a cliente_user
-INSERT INTO user_roles (user_id, role_id) VALUES (2, 2); -- USER
-INSERT INTO user_roles (user_id, role_id) VALUES (2, 3); -- CLIENTE
-
--- Asignación de roles a visitante_user
-INSERT INTO user_roles (user_id, role_id) VALUES (2, 2); -- USER
+-- Asignación de roles a visitante_user (ID = 3)
+INSERT INTO user_roles (user_id, role_id) VALUES (3, 2);  -- Rol USER
 
 ```
 
