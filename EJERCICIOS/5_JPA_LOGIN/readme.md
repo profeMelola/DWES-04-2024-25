@@ -186,26 +186,38 @@ public class LoginBean implements Serializable {
 
     public boolean isAdmin() { return isAdmin; }
 
-    /**
-     * Establece si el usuario es administrador y redirige al usuario a la página main.xhtml si la validación es correcta
+   /**
+     * Establece si el usuario es administrador y redirige al usuario a la página
+     * main.xhtml si la validación es correcta
+     * Verificar si el usuario existe en la base de datos (en la tabla USERS).
+     * Verificar que la contraseña coincida (aunque las contraseñas nunca deberían
+     * guardarse en texto plano en producción, aquí se asume que la contraseña está
+     * en texto plano).
+     * Verificar si el usuario tiene el rol adecuado (admin o cliente) en la tabla
+     * ROLES.
+     * 
      * @return
      */
     public String login() {
         if (validateInputs()) {
-            // Verificamos si el usuario es admin
-            isAdmin = "admin".equals(username);
+
+            // CAMBIAR ESTO POR EL ACCESO A DATOS...
+            if (username.equalsIgnoreCase("admin"))
+                isAdmin = true;            
+
 
             // Redirigimos a la página principal
             // JSF realiza una nueva solicitud HTTP hacia main.xhtml.
-            //Cambia la URL en la barra del navegador a main.xhtml y hace que la página se recargue completamente.
-            return "main?faces-redirect=true"; 
+            // Cambia la URL en la barra del navegador a main.xhtml y hace que la página se
+            // recargue completamente.
+            return "main?faces-redirect=true";
         }
         return null; // Permanece en la misma página si falla la validación
     }
 
     private boolean validateInputs() {
-        if (username.equalsIgnoreCase("admin"))
-            isAdmin = true;
+        // SI HAY VALIDACIONES QUE HACER CON CAMPOS....
+
         return true;
     }
 
