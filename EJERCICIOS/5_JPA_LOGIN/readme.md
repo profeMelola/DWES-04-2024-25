@@ -9,26 +9,49 @@
 Para gestionar los usuarios y roles, necesitaremos dos tablas adicionales en tu base de datos libros, una para almacenar los usuarios y otra para los roles asociados a cada usuario.
 
 ```
-CREATE TABLE USERS (
+-- Tabla de usuarios
+CREATE TABLE users (
     username VARCHAR(50) PRIMARY KEY,
     password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE ROLES (
-    username VARCHAR(50),
-    role_name VARCHAR(50),
-    FOREIGN KEY (username) REFERENCES USERS(username),
-    PRIMARY KEY (username, role_name)
+-- Tabla de roles
+CREATE TABLE roles (
+    role_id INT PRIMARY KEY AUTO_INCREMENT,
+    role_name VARCHAR(50) NOT NULL UNIQUE
 );
 
+-- Tabla de relación entre usuarios y roles
+CREATE TABLE user_roles (
+    username VARCHAR(50),
+    role_id INT,
+    PRIMARY KEY (username, role_id),
+    FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE,
+    FOREIGN KEY (role_id) REFERENCES roles(role_id) ON DELETE CASCADE
+);
+
+
 -- Insertamos usuarios
-INSERT INTO USERS (username, password) VALUES ('admin', 'adminpass');
-INSERT INTO USERS (username, password) VALUES ('cliente', 'clientepass');
+INSERT INTO users (username, password) VALUES ('admin', 'adminpass');
+INSERT INTO users (username, password) VALUES ('cliente', 'clientepass');
+INSERT INTO users (username, password) VALUES ('visitante', 'visitantepass');
+
 
 -- Asignamos roles (múltiples roles para el usuario 'admin')
 INSERT INTO ROLES (username, role_name) VALUES ('admin', 'ADMIN');
 INSERT INTO ROLES (username, role_name) VALUES ('admin', 'USER');
 INSERT INTO ROLES (username, role_name) VALUES ('cliente', 'CLIENTE');
+
+-- Asignación de roles a admin_user
+INSERT INTO user_roles (username, role_id) VALUES ('adminr', 1); -- ADMIN
+INSERT INTO user_roles (username, role_id) VALUES ('admin', 2); -- USER
+
+-- Asignación de roles a cliente_user
+INSERT INTO user_roles (username, role_id) VALUES ('cliente', 2); -- USER
+INSERT INTO user_roles (username, role_id) VALUES ('cliente', 3); -- CLIENTE
+
+-- Asignación de roles a visitante_user
+INSERT INTO user_roles (username, role_id) VALUES ('visitante', 2); -- USER
 
 ```
 
