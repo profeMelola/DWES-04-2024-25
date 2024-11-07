@@ -6,7 +6,7 @@
 
 ## Nuevas tablas en la base de datos del ejercicio de libros (LibrosDS)
 
-Para gestionar los usuarios y roles, necesitaremos dos tablas adicionales en tu base de datos H2, una para almacenar los usuarios y otra para los roles asociados a cada usuario.
+Para gestionar los usuarios y roles, necesitaremos dos tablas adicionales en tu base de datos libros, una para almacenar los usuarios y otra para los roles asociados a cada usuario.
 
 ```
 CREATE TABLE USERS (
