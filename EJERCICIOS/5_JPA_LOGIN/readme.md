@@ -21,6 +21,14 @@ CREATE TABLE ROLES (
     PRIMARY KEY (username, role_name)
 );
 
+-- Insertamos usuarios
+INSERT INTO USERS (username, password) VALUES ('admin', 'adminpass');
+INSERT INTO USERS (username, password) VALUES ('cliente', 'clientepass');
+
+-- Asignamos roles (múltiples roles para el usuario 'admin')
+INSERT INTO ROLES (username, role_name) VALUES ('admin', 'ADMIN');
+INSERT INTO ROLES (username, role_name) VALUES ('admin', 'USER');
+INSERT INTO ROLES (username, role_name) VALUES ('cliente', 'CLIENTE');
 
 ```
 
