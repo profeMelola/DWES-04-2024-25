@@ -17,16 +17,10 @@ CREATE TABLE USERS (
 CREATE TABLE ROLES (
     username VARCHAR(50),
     role_name VARCHAR(50),
-    FOREIGN KEY (username) REFERENCES USERS(username)
+    FOREIGN KEY (username) REFERENCES USERS(username),
+    PRIMARY KEY (username, role_name)
 );
 
--- Insertamos algunos usuarios de ejemplo
-INSERT INTO USERS (username, password) VALUES ('admin', 'adminpass');
-INSERT INTO USERS (username, password) VALUES ('cliente', 'clientepass');
-
--- Asignamos roles
-INSERT INTO ROLES (username, role_name) VALUES ('admin', 'ADMIN');
-INSERT INTO ROLES (username, role_name) VALUES ('cliente', 'CLIENTE');
 
 ```
 
