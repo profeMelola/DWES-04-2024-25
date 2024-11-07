@@ -11,7 +11,8 @@ Para gestionar los usuarios y roles, necesitaremos dos tablas adicionales en tu 
 ```
 -- Tabla de usuarios
 CREATE TABLE users (
-    username VARCHAR(50) PRIMARY KEY,
+    user_id INT PRIMARY KEY AUTO_INCREMENT
+    username VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL
 );
 
@@ -23,10 +24,10 @@ CREATE TABLE roles (
 
 -- Tabla de relación entre usuarios y roles
 CREATE TABLE user_roles (
-    username VARCHAR(50),
+    user_id INT,
     role_id INT,
-    PRIMARY KEY (username, role_id),
-    FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE,
+    PRIMARY KEY (user_id, role_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
     FOREIGN KEY (role_id) REFERENCES roles(role_id) ON DELETE CASCADE
 );
 
@@ -43,15 +44,15 @@ INSERT INTO ROLES (username, role_name) VALUES ('admin', 'USER');
 INSERT INTO ROLES (username, role_name) VALUES ('cliente', 'CLIENTE');
 
 -- Asignación de roles a admin_user
-INSERT INTO user_roles (username, role_id) VALUES ('adminr', 1); -- ADMIN
-INSERT INTO user_roles (username, role_id) VALUES ('admin', 2); -- USER
+INSERT INTO user_roles (user_id, role_id) VALUES (1, 1); -- ADMIN
+INSERT INTO user_roles (user_id, role_id) VALUES (1, 2); -- USER
 
 -- Asignación de roles a cliente_user
-INSERT INTO user_roles (username, role_id) VALUES ('cliente', 2); -- USER
-INSERT INTO user_roles (username, role_id) VALUES ('cliente', 3); -- CLIENTE
+INSERT INTO user_roles (user_id, role_id) VALUES (2, 2); -- USER
+INSERT INTO user_roles (user_id, role_id) VALUES (2, 3); -- CLIENTE
 
 -- Asignación de roles a visitante_user
-INSERT INTO user_roles (username, role_id) VALUES ('visitante', 2); -- USER
+INSERT INTO user_roles (user_id, role_id) VALUES (2, 2); -- USER
 
 ```
 
