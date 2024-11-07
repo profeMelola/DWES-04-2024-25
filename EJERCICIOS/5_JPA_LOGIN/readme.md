@@ -224,6 +224,10 @@ public class LoginBean implements Serializable {
 
 Necesitamos comprobar si el usuario y password introducidos son los que existen en la base de datos....
 
+## Completar la lógica de negocio
+
+Tenemos que implementar el código necesario en **LoginBean** que actúa como controlador.
+
 
 # FASE II: JAAS (Java Authentication an Authorization Service)
 
