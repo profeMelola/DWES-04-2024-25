@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login</title>
+    <!-- Enlace a la hoja de estilo de Bootstrap 5 -->
+    <link href="#{request.contextPath}/css/bootstrap.min.css" rel="stylesheet"/>
+</h:head>
+<h:body>
+
+    <!-- Contenedor principal -->
+    <div class="container mt-5">
+        <!-- Mensaje de bienvenida -->
+        <div class="jumbotron text-center">
+            <h1 class="display-4"><h:outputText value="Bienvenido, #{loginBean.username}"/></h1>
+            <h1 class="display-4">Bienvenido, #{loginBean.username}</h1>
+            <p class="lead">Seleccione una opción en el menú para trabajar con libros y autores</p>
+        </div>
+
+        <!-- Menú desplegable de administración -->
+        <div class="d-flex justify-content-center">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    Opciones de persistencia
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                    <h:panelGroup rendered="#{loginBean.canSelect()}">
+                        <li><a class="dropdown-item" href="libros/jpa?operacion=select">Listar libros</a></li>
+                    </h:panelGroup>
+
+
+                    <h:panelGroup rendered="#{loginBean.canSave()}">
+                        <li><a class="dropdown-item" href="libros/jpa?operacion=save">Dar de alta Jorge Luis Borges y dos libros</a></li>
+                    </h:panelGroup>
+
+
+                </ul>
+            </div>
+        </div>
+        <!--<a href="#{request.contextPath}/login.xhtml" class="btn btn-secondary mt-4">Volver a iniciar sesión</a>-->
+        <h:form>
+            <h:commandButton value="Cerrar Sesión" action="#{loginBean.logout}" />
+        </h:form>
+
+    </div>
+
+    <!-- Script de Bootstrap 5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</h:body>
+</html>

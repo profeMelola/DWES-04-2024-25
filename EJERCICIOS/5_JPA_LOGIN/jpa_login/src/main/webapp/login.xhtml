@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Login</title>
+    <style>
+        /* Estilos generales de página */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+
+        /* Contenedor del formulario */
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Título del formulario */
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Estilos de etiqueta y campo */
+        .login-container label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        /* Efecto hover y focus */
+        .login-container input[type="text"]:focus,
+        .login-container input[type="password"]:focus {
+            border-color: #5c9aed;
+            outline: none;
+        }
+
+        /* Botón de login */
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #5c9aed;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color: #4a86d0;
+        }
+
+        /* Estilos de mensaje de error */
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</h:head>
+<h:body>
+    <div class="login-container">
+        <h1>Gestión de una biblioteca</h1>
+        <h2>Iniciar Sesión</h2>
+        <h:form>
+            <h:outputLabel for="username" value="Username:" />
+            <h:inputText id="username" value="#{loginBean.username}" required="true" requiredMessage="Username is required" />
+            <h:message for="username" styleClass="error-message" />
+
+            <h:outputLabel for="password" value="Password:" />
+            <h:inputSecret id="password" value="#{loginBean.password}" required="true" requiredMessage="Password is required" />
+            <h:message for="password" styleClass="error-message" />
+
+            <h:commandButton value="Login" action="#{loginBean.login}" />
+        </h:form>
+    </div>
+</h:body>
+</html>

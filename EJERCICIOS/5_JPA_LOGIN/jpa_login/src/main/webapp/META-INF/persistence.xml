@@ -1,0 +1,15 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+    <persistence-unit name="LibrosDS" transaction-type="JTA">
+        <jta-data-source>java:/LibrosDS</jta-data-source>
+
+        <class>es.daw.web.entities.Author</class>
+        <class>es.daw.web.entities.Book</class>
+        
+        <properties>
+            <property name="jakarta.persistence.schema-generation.database.action" value="validate"/>
+        </properties>
+    </persistence-unit>
+</persistence>

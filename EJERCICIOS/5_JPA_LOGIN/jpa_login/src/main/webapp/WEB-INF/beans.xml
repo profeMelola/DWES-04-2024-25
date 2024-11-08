@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Si no necesitas ninguna configuración especial, puedes omitir el archivo beans.xml o usar el archivo mínimo.
+Jakarta EE 10 asume bean-discovery-mode="annotated" por defecto si no se incluye beans.xml, 
+lo que es suficiente para la mayoría de los casos. -->
+<beans xmlns="https://jakarta.ee/xml/ns/jakartaee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/beans_4_0.xsd"
+       bean-discovery-mode="all">
+
+</beans>
+
+<!-- 
+bean-discovery-mode: Controla cómo se descubren los beans CDI en la aplicación.
+"all": Descubre todos los beans disponibles.
+"annotated": Solo descubre beans que estén anotados específicamente para CDI (@Dependent, @RequestScoped, etc.).
+"none": Desactiva la detección de beans.
+-->
