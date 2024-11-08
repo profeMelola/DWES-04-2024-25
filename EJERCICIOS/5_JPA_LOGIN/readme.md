@@ -307,6 +307,10 @@ Necesitamos:
 Tenemos que implementar el código necesario en **LoginBean** que actúa como controlador.
 
 
+![12u](https://github.com/user-attachments/assets/2ff1c0e0-f348-47a1-9527-8c113b4ba2ce)
+
+____
+
 # FASE II: JAAS (Java Authentication an Authorization Service)
 
 ## Configurar el security-domain en WildFly
