@@ -67,12 +67,20 @@ public class LoginBean implements Serializable {
         return null; // Permanece en la misma página si falla la validación
     }
 
-    public void logout() throws IOException{
-        System.out.println("**************** Cerrando sessión.....");
+    // public void logout() throws IOException{
+    //     System.out.println("**************** Cerrando sessión.....");
+    //     // Limpia la sesión del usuario, eliminando cualquier atributo almacenado en la sesión.
+    //     FacesContext.getCurrentInstance().getExternalContext().invalidateSession(); // Invalidar la sesión
+    //     FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml"); // Redirigir a login.xhtml
+    // }    
+
+    public String logout() {
+        System.out.println("**************** Cerrando sesión.....");
         // Limpia la sesión del usuario, eliminando cualquier atributo almacenado en la sesión.
-        FacesContext.getCurrentInstance().getExternalContext().invalidateSession(); // Invalidar la sesión
-        FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml"); // Redirigir a login.xhtml
-    }    
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        // Retornamos la página a la que queremos navegar tras el logout
+        return "login?faces-redirect=true";  // Redirige a "login.xhtml" mediante navegación de JSF
+    }
 
     private boolean validateInputs() {
 
