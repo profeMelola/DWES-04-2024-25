@@ -56,6 +56,16 @@ INSERT INTO user_roles (user_id, role_id) VALUES (3, 2);  -- Rol USER
 
 Las passwords están en texto plano por simplicidad, pero en producción deberías usar hashing seguro como **BCrypt.**
 
+## Persistence.xml: ppciones de Configuración para jakarta.persistence.schema-generation.database.action
+
+- **none:** Con esta configuración (value="none"), JPA no creará ni modificará las tablas en la base de datos. Úsalo cuando ya hayas creado manualmente las tablas en la base de datos o cuando quieras que tu aplicación solo interactúe con las tablas sin modificarlas.
+- **create:** JPA creará todas las tablas y estructuras necesarias cada vez que la aplicación se inicie. Este valor eliminará las tablas existentes y las volverá a crear, lo que puede ser útil en el desarrollo inicial pero es destructivo para los datos existentes.
+- **drop-and-create:** Similar a create, pero primero elimina todas las tablas y luego las vuelve a crear. Ideal para pruebas, ya que garantiza que siempre se inicie con una base de datos limpia, aunque también borra todos los datos cada vez.
+- **update:** JPA intentará ajustar las tablas para que coincidan con los Entities sin eliminar datos. Este valor es útil durante el desarrollo, ya que permite actualizar la estructura sin eliminar datos existentes. Sin embargo, es menos confiable para cambios mayores y no siempre realiza todos los ajustes necesarios. 
+- **validate:** Solo verifica que las tablas y columnas en la base de datos coincidan con los Entities. No realiza cambios en la base de datos. Útil para producción o entornos donde solo se desea confirmar que la estructura es correcta. 
+
+En nuestro entorno vamos a usar la opción de **validate**, aunque en desarrollo, normalmente se usa drop-and-create y update.
+
 ## Proyecto JPA_LOGIN
 
 Partimos del proyecto del ejercicio https://github.com/profeMelola/DWES-04-2024-25/tree/main/EJERCICIOS/4_JPA_Asociaciones#ejercicio-1-asociaciones-onetomany-y-manytoone
