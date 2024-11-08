@@ -56,7 +56,7 @@ INSERT INTO user_roles (user_id, role_id) VALUES (3, 2);  -- Rol USER
 
 Las passwords están en texto plano por simplicidad, pero en producción deberías usar hashing seguro como **BCrypt.**
 
-## Persistence.xml: ppciones de Configuración para jakarta.persistence.schema-generation.database.action
+## Persistence.xml: opciones de Configuración para jakarta.persistence.schema-generation.database.action
 
 - **none:** Con esta configuración (value="none"), JPA no creará ni modificará las tablas en la base de datos. Úsalo cuando ya hayas creado manualmente las tablas en la base de datos o cuando quieras que tu aplicación solo interactúe con las tablas sin modificarlas.
 - **create:** JPA creará todas las tablas y estructuras necesarias cada vez que la aplicación se inicie. Este valor eliminará las tablas existentes y las volverá a crear, lo que puede ser útil en el desarrollo inicial pero es destructivo para los datos existentes.
