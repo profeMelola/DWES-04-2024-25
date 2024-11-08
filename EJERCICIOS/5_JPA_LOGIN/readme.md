@@ -202,8 +202,14 @@ Partimos de esta estructura que tendremos que completar:
 package es.daw.web.cdi;
 
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
+import jakarta.persistence.TypedQuery;
+
+import java.io.IOException;
 import java.io.Serializable;
+
+//import es.daw.web.entities.User;
 
 @Named("loginBean")
 @SessionScoped
@@ -212,27 +218,40 @@ public class LoginBean implements Serializable {
     private String password;
     private boolean isAdmin;
 
-    public String getUsername() { return username; }
-    public void setUsername(String username) { this.username = username; }
+    public String getUsername() {
+        return username;
+    }
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-    public boolean isAdmin() { return isAdmin; }
+    public String getPassword() {
+        return password;
+    }
 
-   /**
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    /**
      * Establece si el usuario es administrador y redirige al usuario a la página
      * main.xhtml si la validación es correcta
-     * Verificar si el usuario existe en la base de datos (en la tabla USERS).
-     * Verificar que la contraseña coincida (aunque las contraseñas nunca deberían
+     * 1. Verificar si el usuario existe en la base de datos (en la tabla USERS).
+     * 2. Verificar que la contraseña coincida (aunque las contraseñas nunca deberían
      * guardarse en texto plano en producción, aquí se asume que la contraseña está
      * en texto plano).
-     * Verificar si el usuario tiene el rol adecuado (admin o cliente) en la tabla
+     * 3. Verificar si el usuario tiene el rol adecuado (admin o cliente) en la tabla
      * ROLES.
      * 
      * @return
      */
     public String login() {
+        System.out.println("*********** LOGIN ************");
         if (validateInputs()) {
 
             // CAMBIAR ESTO POR EL ACCESO A DATOS...
@@ -249,7 +268,15 @@ public class LoginBean implements Serializable {
         return null; // Permanece en la misma página si falla la validación
     }
 
+    public void logout() throws IOException{
+        System.out.println("**************** Cerrando sessión.....");
+        // Limpia la sesión del usuario, eliminando cualquier atributo almacenado en la sesión.
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession(); // Invalidar la sesión
+        FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml"); // Redirigir a login.xhtml
+    }    
+
     private boolean validateInputs() {
+
         // SI HAY VALIDACIONES QUE HACER CON CAMPOS....
 
         return true;
@@ -263,7 +290,6 @@ public class LoginBean implements Serializable {
         return true; // Todos los usuarios pueden seleccionar
     }
 }
-
 ```
 
 ## Creamos los Entity Bean necesarios
