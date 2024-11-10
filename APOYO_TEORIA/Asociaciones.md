@@ -61,6 +61,8 @@ public class Book {
 
 # 2. @ManyToMany
 
+![image](https://github.com/user-attachments/assets/e6a63eb0-b676-4686-a179-eada22a67de6)
+
 ![image](https://github.com/user-attachments/assets/d24c9d35-7c21-47aa-9f80-31fee33a07dd)
 
 ## Entidad User (lado propietario): @ManyToMany + @JoinTable
