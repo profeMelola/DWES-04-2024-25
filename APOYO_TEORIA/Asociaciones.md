@@ -35,3 +35,25 @@ public class Author {
 
   ....
 ```
+
+## Entidad poseída Book: @ManyTOne
+
+```
+@Entity
+public class Book {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String title;
+
+    // Muchos libros pueden tener el mismo autor....
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private Author author;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name="publication_date")
+    private LocalDate publicationDate;
+```
