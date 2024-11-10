@@ -6,7 +6,6 @@
 ## Entidad propietaria Author: @OneToMany
 
 ```
-
 @Entity
 public class Author {
 
@@ -16,25 +15,24 @@ public class Author {
 
     private String name;
 
-    /*
-     Una instancia de Author puede estar asociada con múltiples instancias de Book.
-     Un autor tiene una lista de libros (en este ejemplo un conjunto). 
-  
-     En la clase Book, hay un campo que se llama author, que representa la relación con el autor (private Author author;).
-     Al definir mappedBy, le estamos diciendo a JPA que Book tiene la clave foránea author_id. 
-    
-
-     // El Cascade se maneja en el entity principal o padre
-     CascadeType.ALL: permite que cualquier operación (persistir, eliminar, actualizar) realizada en un autor se aplique también en sus libros.
-     orphanRemoval = true: elimina de la base de datos cualquier libro que se elimine de la lista books del autor.
-
-    */
-
-     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Book> books;
 
   ....
 ```
+
+- Una instancia de Author puede estar asociada con múltiples instancias de Book.
+- Un autor tiene una lista de libros (en este ejemplo un conjunto).
+  
+- En la clase Book, hay un campo que se llama author, que representa la relación con el autor (private Author author;).
+- Al definir **mappedBy**:
+    - Le estamos diciendo a JPA que Book tiene la clave foránea author_id.
+    - Tiene el valor de author, que es el nombre del campo en Book.
+  
+- El **Cascade** se maneja en el entity principal o padre:
+    - **CascadeType.ALL:** permite que cualquier operación (persistir, eliminar, actualizar) realizada en un autor se aplique también en sus libros.
+    - **orphanRemoval = true:** elimina de la base de datos cualquier libro que se elimine de la lista books del autor.
+
 
 ## Entidad poseída Book: @ManyTOne
 
