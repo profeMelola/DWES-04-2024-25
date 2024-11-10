@@ -54,6 +54,10 @@ INSERT INTO user_roles (user_id, role_id) VALUES (3, 2);  -- Rol USER
 
 ```
 
+![image](https://github.com/user-attachments/assets/94bc73a0-2ca1-480a-bf39-4d420bd38e38)
+
+
+
 Las passwords están en texto plano por simplicidad, pero en producción deberías usar hashing seguro como **BCrypt.**
 
 ## Persistence.xml: opciones de Configuración para jakarta.persistence.schema-generation.database.action
