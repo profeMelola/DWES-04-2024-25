@@ -1,6 +1,7 @@
 # @OneToMany + @ManyToOne
 
-![image](https://github.com/user-attachments/assets/b2ecf836-0ae3-43ad-9bfd-3748102c72c8)
+![image](https://github.com/user-attachments/assets/b2ecf836-0ae3-43ad-9bfd-3748102c72c8) ![image](https://github.com/user-attachments/assets/89481a6a-4d66-4c38-841d-8b95c3fee2f9)
+
 
 ## Entidad propietaria Author
 
