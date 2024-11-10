@@ -139,6 +139,6 @@ public class Rol {
 ```
 
 - **@ManyToMany:** Define la relación muchos a muchos, igual que en User, pero en este caso es la relación inversa, ya que Role también tiene un conjunto de usuarios.
-- **mappedBy = "roles":** Indica que esta es la relación inversa y que el mapeo principal de la relación ya está en la entidad User, en el atributo roles (rivate Set<Rol> roles = new HashSet<>();).
+- **mappedBy = "roles":** Indica que esta es la relación inversa y que el mapeo principal de la relación ya está en la entidad User, en el atributo roles (private Set<Rol> roles = new HashSet<>();).
     - La propiedad mappedBy indica a JPA que esta entidad Rol es el lado inverso de la relación y que User controla el mapeo.
 - **fetch = FetchType.LAZY:** La carga perezosa se aplica aquí también, de modo que los usuarios asociados a un rol no se cargarán de inmediato, sino solo cuando se acceda al atributo users.
