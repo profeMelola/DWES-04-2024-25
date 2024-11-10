@@ -26,7 +26,7 @@ public class Author {
   
 - En la clase Book, hay un campo que se llama author, que representa la relación con el autor (private Author author;).
 - Al definir **mappedBy**:
-    - Le estamos diciendo a JPA que Book tiene la clave foránea author_id.
+    - Le estamos diciendo a JPA que Book tiene la clave foránea.
     - Tiene el valor de author, que es el nombre del campo en Book.
   
 - El **Cascade** se maneja en el entity principal o padre:
