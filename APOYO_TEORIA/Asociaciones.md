@@ -1,4 +1,4 @@
-# @OneToMany + @ManyToOne
+# 1. @OneToMany + @ManyToOne
 
 ![image](https://github.com/user-attachments/assets/b2ecf836-0ae3-43ad-9bfd-3748102c72c8) ![image](https://github.com/user-attachments/assets/89481a6a-4d66-4c38-841d-8b95c3fee2f9)
 
@@ -58,3 +58,6 @@ public class Book {
 - Muchos libros (Book) pueden estar asociados con un único autor (Author).
 - La anotación **@JoinColumn** se utiliza para especificar la columna en la tabla Book que se usará como clave foránea para referenciar al Author.
     - El atributo **name = "author_id"** indica que esta columna en la tabla Book se llamará author_id.
+
+# 2. @ManyToMany
+
