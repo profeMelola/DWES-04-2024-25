@@ -142,3 +142,72 @@ public class Rol {
 - **mappedBy = "roles":** Indica que esta es la relación inversa y que el mapeo principal de la relación ya está en la entidad User, en el atributo roles (private Set<Rol> roles = new HashSet<>();).
     - La propiedad mappedBy indica a JPA que esta entidad Rol es el lado inverso de la relación y que User controla el mapeo.
 - **fetch = FetchType.LAZY:** La carga perezosa se aplica aquí también, de modo que los usuarios asociados a un rol no se cargarán de inmediato, sino solo cuando se acceda al atributo users.
+
+# 3. DIFERENCIA ENTRE RELACIONES UNIDIRECCIONALES Y BIDIRECCIONALES
+
+## Relación unidireccional
+
+Solo una de las entidades "conoce a la otra". Solo uno de los dos lados tiene referencia a la otra unidad.
+
+```
+@Entity
+public class Autor {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nombre;
+    
+    @OneToMany
+    private List<Libro> libros;
+
+    // Getters y Setters
+}
+
+@Entity
+public class Libro {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String titulo;
+
+    // No hay referencia al autor aquí
+
+    // Getters y Setters
+}
+
+```
+
+## Relación bidireccional
+
+Ambas entidades tienen referencias entre sí. 
+
+Siguiendo con el ejemplo de autor y libros, tanto el Autor conoce los Libros que ha escrito, como el Libro conoce a su Autor.
+
+```
+@Entity
+public class Autor {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nombre;
+    
+    @OneToMany(mappedBy = "autor")
+    private List<Libro> libros;
+
+    // Getters y Setters
+}
+
+@Entity
+public class Libro {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String titulo;
+
+    @ManyToOne
+    private Autor autor;
+
+    // Getters y Setters
+}
+
+```
