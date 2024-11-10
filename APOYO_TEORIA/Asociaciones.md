@@ -55,3 +55,6 @@ public class Book {
     @Column(name="publication_date")
     private LocalDate publicationDate;
 ```
+- Muchos libros (Book) pueden estar asociados con un único autor (Author).
+- La anotación **@JoinColumn** se utiliza para especificar la columna en la tabla Book que se usará como clave foránea para referenciar al Author.
+    - El atributo **name = "author_id"** indica que esta columna en la tabla Book se llamará author_id.
