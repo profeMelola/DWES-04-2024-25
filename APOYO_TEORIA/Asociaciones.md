@@ -63,7 +63,7 @@ public class Book {
 
 ![image](https://github.com/user-attachments/assets/d24c9d35-7c21-47aa-9f80-31fee33a07dd)
 
-## Entidad User: @ManyToMany + @JoinTable
+## Entidad User (lado propietario): @ManyToMany + @JoinTable
 
 ```
 @Entity
@@ -114,3 +114,29 @@ public class User {
 - **joinColumns =** @JoinColumn(name = "user_id"): Define la columna en user_roles que hace referencia a la entidad User.
 - **inverseJoinColumns =** @JoinColumn(name = "role_id"): Define la columna en user_roles que hace referencia a la entidad Role.
 
+## Entidad Rol (lado inverso): @ManyToMany
+
+```
+@Entity
+@Table(name = "roles") // Nombre de la tabla en la base de datos
+public class Rol {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // ID autoincremental en H2
+    @Column(name = "role_id") // Nombre de la columna en la tabla
+    private Integer id;
+
+    @Column(name = "role_name", length = 50, unique = true, nullable = false)
+    private String roleName; // Nombre único del rol, no nulo
+
+    // Relación muchos-a-muchos con User, con tabla intermedia user_roles
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY) // Relación inversa, carga perezosa
+    private Set<User> users = new HashSet<>();
+
+    ...
+```
+
+- **@ManyToMany:** Define la relación muchos a muchos, igual que en User, pero en este caso es la relación inversa, ya que Role también tiene un conjunto de usuarios.
+- **mappedBy = "roles":** Indica que esta es la relación inversa y que el mapeo principal de la relación ya está en la entidad User, en el atributo roles (rivate Set<Rol> roles = new HashSet<>();).
+    - La propiedad mappedBy indica a JPA que esta entidad Rol es el lado inverso de la relación y que User controla el mapeo.
+- **fetch = FetchType.LAZY:** La carga perezosa se aplica aquí también, de modo que los usuarios asociados a un rol no se cargarán de inmediato, sino solo cuando se acceda al atributo users.
