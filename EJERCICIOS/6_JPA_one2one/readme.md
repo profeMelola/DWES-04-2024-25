@@ -73,5 +73,9 @@ En caso de excpeción, que devuelva un **SC_INTERNAL_SERVER_ERROR**.
 
 En caso contrario, que simplemente devuelva el mensaje ""La estructura de tablas se ha creado correctamente en la base de datos."
 
+![image](https://github.com/user-attachments/assets/cb1b3821-8e4c-4d6f-b74d-08cad9655342)
 
   
+## Proyecto inicial: jpa_one2one
+
+Se adjunta el proyecto web inicial que completar.
