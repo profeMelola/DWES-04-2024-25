@@ -1,0 +1,11 @@
+/run/media/melola/Transferencias-X8/VisualStudioWorkspace/2024-25/DAWA/DWES/tienda_dao/src/main/java/es/daw/web/models/ComparatorProdByName.java
+/run/media/melola/Transferencias-X8/VisualStudioWorkspace/2024-25/DAWA/DWES/tienda_dao/src/main/java/es/daw/web/bd/DBConnection.java
+/run/media/melola/Transferencias-X8/VisualStudioWorkspace/2024-25/DAWA/DWES/tienda_dao/src/main/java/es/daw/web/controllers/ListarProductosServlet.java
+/run/media/melola/Transferencias-X8/VisualStudioWorkspace/2024-25/DAWA/DWES/tienda_dao/src/main/java/es/daw/web/models/Fabricante.java
+/run/media/melola/Transferencias-X8/VisualStudioWorkspace/2024-25/DAWA/DWES/tienda_dao/src/main/java/es/daw/web/bd/DaoFabricante.java
+/run/media/melola/Transferencias-X8/VisualStudioWorkspace/2024-25/DAWA/DWES/tienda_dao/src/main/java/es/daw/web/util/Utils.java
+/run/media/melola/Transferencias-X8/VisualStudioWorkspace/2024-25/DAWA/DWES/tienda_dao/src/main/java/es/daw/web/bd/Dao.java
+/run/media/melola/Transferencias-X8/VisualStudioWorkspace/2024-25/DAWA/DWES/tienda_dao/src/main/java/es/daw/web/models/Producto.java
+/run/media/melola/Transferencias-X8/VisualStudioWorkspace/2024-25/DAWA/DWES/tienda_dao/src/main/java/es/daw/web/models/ComparatorProdByNameDesc.java
+/run/media/melola/Transferencias-X8/VisualStudioWorkspace/2024-25/DAWA/DWES/tienda_dao/src/main/java/es/daw/web/bd/DaoProducto.java
+/run/media/melola/Transferencias-X8/VisualStudioWorkspace/2024-25/DAWA/DWES/tienda_dao/src/main/java/es/daw/web/controllers/ModificarProductosServlet.java
