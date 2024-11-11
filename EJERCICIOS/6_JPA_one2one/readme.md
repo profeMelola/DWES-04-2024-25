@@ -37,6 +37,15 @@ Fijándote en el gráfico obtendrás el nombre de los atributos.
 
 ## Datasource a añadir en Wildfly
 
+```
+                <datasource jndi-name="java:/ClienteDS" pool-name="ClienteDS">
+                    <connection-url>jdbc:h2:file:~/clientes;AUTO_SERVER=TRUE</connection-url>
+                    <driver-class>org.h2.Driver</driver-class>
+                    <driver>h2</driver>
+                    <security user-name="sa" password="sa"/>
+                </datasource>
+
+```
 
 
   
