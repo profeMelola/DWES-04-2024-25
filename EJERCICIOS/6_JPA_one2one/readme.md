@@ -35,6 +35,24 @@ Una clase enumerada:
 
 Fijándote en el gráfico obtendrás el nombre de los atributos.
 
+## Relación @OneToOne
+
+En Cliente deberás usar:
+
+```
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "cliente")
+    private ClienteDetalle detalle;
+```
+
+En ClienteDetalle deberás usar:
+
+```
+    @OneToOne
+    @JoinColumn(name="cliente_detalle_id")
+    private Cliente cliente;
+
+```
+
 ## Datasource a añadir en Wildfly
 
 ```
