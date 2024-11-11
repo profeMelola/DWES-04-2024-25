@@ -67,9 +67,9 @@ En ClienteDetalle deberás usar:
 
 ## Controlador: JPAServlet
 
-Crea un Servlet que simplemente al recibir una petición GET monte todas las tablas en la base de datos.
+Crea un Servlet que simplemente al recibir una petición GET monte todas las tablas en la base de datos (**http://localhost:8080/jpa-one2one/initDatabase**).
 
-En caso de excpeción, que devuelva un SC_INTERNAL_SERVER_ERROR.
+En caso de excpeción, que devuelva un **SC_INTERNAL_SERVER_ERROR**.
 
 En caso contrario, que simplemente devuelva el mensaje ""La estructura de tablas se ha creado correctamente en la base de datos."
 
