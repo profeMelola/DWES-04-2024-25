@@ -1,6 +1,9 @@
 # Ejercicio para practicar con la relación one to one
 
-Incluimos en nuestro aprendizaje la relación one2one.
+Incluimos en nuestro aprendizaje:
+- La relación one2one.
+- La clase embebida Auditoria.
+- La clase enumerada FormaPago.
 
 Además con este ejercicio, repasarás asociaciones ya vistas previamente.
 
