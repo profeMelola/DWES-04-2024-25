@@ -6,7 +6,8 @@ Además con este ejercicio, repasarás asociaciones ya vistas previamente.
 
 El diagrama de entidades(tablas) y relaciones de la base de datos es este:
 
-![image](https://github.com/user-attachments/assets/676105b1-1c71-4024-a6a3-6a2f59223de2)
+![image](https://github.com/user-attachments/assets/782663be-aafb-4caa-9a03-3d4aa99fb46e)
+
 
 
 ## Ten en cuenta:
