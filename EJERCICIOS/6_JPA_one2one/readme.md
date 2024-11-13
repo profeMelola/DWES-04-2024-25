@@ -1,4 +1,4 @@
-# Ejercicio para practicar con la relación one to one
+# FASE I : ejercicio para repasar todas las relaciones y aprender la relación one to one
 
 Incluimos en nuestro aprendizaje:
 - La relación one2one.
