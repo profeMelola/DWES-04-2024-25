@@ -1,4 +1,5 @@
-# 1. EJERCICIO DE AUTORES Y LIBROS: @OneToMany + @ManyToOne
+# 1. EJERCICIO DE AUTORES Y LIBROS
+# @OneToMany + @ManyToOne -> bidireccional
 
 ![image](https://github.com/user-attachments/assets/b2ecf836-0ae3-43ad-9bfd-3748102c72c8) ![image](https://github.com/user-attachments/assets/89481a6a-4d66-4c38-841d-8b95c3fee2f9)
 
@@ -59,7 +60,47 @@ public class Book {
 - La anotación **@JoinColumn** se utiliza para especificar la columna en la tabla Book que se usará como clave foránea para referenciar al Author.
     - El atributo **name = "author_id"** indica que esta columna en la tabla Book se llamará author_id.
 
-# 2. EJERCICIO DE USUARIOS Y ROLES: @ManyToMany
+
+# 2. EJERCICIO DE FABRICANTES Y PRODUCTOS
+# @ManyToOne -> Unidireccional
+
+```
+@Entity
+@Table(name="producto")
+public class Producto implements Serializable{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int codigo;
+    private String nombre;
+    private float precio;
+
+    // Indica que muchos productos pueden estar asociados a un solo fabricante.
+    @ManyToOne
+    @JoinColumn(name = "codigo_fabricante", referencedColumnName = "codigo", nullable = false)
+    private Fabricante fabricante;
+...
+
+```
+
+```
+@Entity
+@Table(name="fabricante")
+public class Fabricante implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //delega la generación de la primary ke a la bd (autoincrement)
+    @Column(name="codigo")
+    private int codigo;
+
+    @Column(name="nombre")
+    private String nombre;
+
+...
+```
+
+Es unidireccional porque Fabricante "no conoce" a productos. No tiene una lista de productos.
+
+# 3. EJERCICIO DE USUARIOS Y ROLES: @ManyToMany
 
 ![image](https://github.com/user-attachments/assets/e6a63eb0-b676-4686-a179-eada22a67de6)
 
@@ -143,7 +184,7 @@ public class Rol {
     - La propiedad mappedBy indica a JPA que esta entidad Rol es el lado inverso de la relación y que User controla el mapeo.
 - **fetch = FetchType.LAZY:** La carga perezosa se aplica aquí también, de modo que los usuarios asociados a un rol no se cargarán de inmediato, sino solo cuando se acceda al atributo users.
 
-# 3. DIFERENCIA ENTRE RELACIONES UNIDIRECCIONALES Y BIDIRECCIONALES
+# 4. DIFERENCIA ENTRE RELACIONES UNIDIRECCIONALES Y BIDIRECCIONALES
 
 ## Relación unidireccional
 
