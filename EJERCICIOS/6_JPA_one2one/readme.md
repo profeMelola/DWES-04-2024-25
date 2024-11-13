@@ -69,6 +69,12 @@ En ClienteDetalle deberás usar:
 
 ```
 
+## Base de datos: clientes
+
+Se adjunta a la tarea la base de datos vacía sin tablas.
+
+En este ejercicio crearemos la estructura de tablas desde las Entidades JPA que diseñemos.
+
 ## Controlador: JPAServlet
 
 Crea un Servlet que simplemente al recibir una petición GET monte todas las tablas en la base de datos (**http://localhost:8080/jpa-one2one/initDatabase**).
