@@ -4,8 +4,6 @@
 ![image](https://github.com/user-attachments/assets/b2ecf836-0ae3-43ad-9bfd-3748102c72c8) ![image](https://github.com/user-attachments/assets/89481a6a-4d66-4c38-841d-8b95c3fee2f9)
 
 
-## Entidad propietaria Author: @OneToMany
-
 ```
 @Entity
 public class Author {
@@ -63,6 +61,20 @@ public class Book {
 
 # 2. EJERCICIO DE FABRICANTES Y PRODUCTOS
 # @ManyToOne -> Unidireccional
+
+## Entidad propietaria Author: @OneToMany
+
+```
+┌────────────────────────┐           ┌───────────────────────────┐
+│        Fabricante      |           |         Producto          │
+├────────────────────────┤           ├───────────────────────────┤
+│  + codigo : int        │_1___      │  + codigo : int           │
+│  + nombre : String     │     |     │  + nombre : String        │
+└────────────────────────┘     |     │  + precio : float         │
+                               |____ │  + codigo_fabricante :int │
+                                     └───────────────────────────┘
+
+```
 
 ```
 @Entity
