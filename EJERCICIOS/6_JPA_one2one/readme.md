@@ -7,7 +7,7 @@ Incluimos en nuestro aprendizaje:
 
 Además con este ejercicio, repasarás asociaciones ya vistas previamente.
 
-Crearemos las tablas y relaciones entre ellas. No vamos a persistir información.
+Crearemos las tablas y relaciones entre ellas. En una primera fase no vamos a persistir información.
 
 El diagrama de entidades(tablas) y relaciones de la base de datos es este:
 
