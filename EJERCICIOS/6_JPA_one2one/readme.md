@@ -15,9 +15,9 @@ El diagrama de entidades(tablas) y relaciones de la base de datos es este:
 
 ## Ten en cuenta:
 
-- *Cliente* tiene una relación de **uno a muchos** con *Direccion*, ya que un cliente puede tener múltiples direcciones (unidireccional).
-- *Cliente* tiene una relación de **uno a muchos** con *Factura*, indicando que un cliente puede emitir múltiples facturas.
-- *Factura* tiene un relación de **muchos a uno** con *Cliente*, indicando que muchas factura pertenecen al mismo cliente.
+- *Cliente* tiene una relación de **uno a muchos** con *Direccion*, ya que un cliente puede tener múltiples direcciones. Bidireccional ya que ambas entidades tienen campos que hacen referencia entre sí, permitiendo la navegación en ambos sentidos.
+- *Cliente* tiene una relación de **uno a muchos** con *Factura*, indicando que un cliente puede emitir múltiples facturas. Bidireccional ya que ambas entidades tienen campos que hacen referencia entre sí, permitiendo la navegación en ambos sentidos.
+- *Factura* tiene un relación de **muchos a uno** con *Cliente*, indicando que muchas factura pertenecen al mismo cliente. 
 - *Cliente* tiene una relación de **uno a uno** con *ClienteDetalle*, indicando que un cliente puede tener un solo detalle (como atributos de cliente prime y puntosAcumulados).
 - *ClienteDetalle* tiene una relación inversa de **uno a uno** con *Cliente*.
 
