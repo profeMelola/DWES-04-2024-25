@@ -7,9 +7,12 @@
 
         <class>es.daw.web.entities.Author</class>
         <class>es.daw.web.entities.Book</class>
+        <class>es.daw.web.entities.User</class>
+        <class>es.daw.web.entities.Rol</class>
         
         <properties>
             <property name="jakarta.persistence.schema-generation.database.action" value="validate"/>
+            <!--<property name="jakarta.persistence.schema-generation.database.action" value="none"/>-->
         </properties>
     </persistence-unit>
 </persistence>

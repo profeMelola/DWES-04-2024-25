@@ -13,4 +13,8 @@ public interface CrudRepository<T> {
     void deleteById(int id) throws JPAException;
     void save(T t) throws JPAException;
 
+    default Optional<T> selectByPropiedad(T t) throws JPAException{
+        return Optional.empty();
+    }
+
 }

@@ -71,5 +71,21 @@ public class JpaManagerCdi implements Serializable{
     }
 
 
+    /**
+     * Método de utilidad que devuelve la causa del error simplificada
+     * @param e
+     * @return
+     */
+    public static String getMessageError(Exception e){
+        String messageError = "";
+        Throwable cause = e;
+        while(cause != null){
+            messageError += cause.getMessage()+"\n";
+            cause = cause.getCause();
+        }
+        return messageError;
+    }
+
+    
 
 }

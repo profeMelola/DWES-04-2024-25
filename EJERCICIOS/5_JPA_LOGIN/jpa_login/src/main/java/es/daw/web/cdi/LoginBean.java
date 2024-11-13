@@ -1,22 +1,38 @@
 package es.daw.web.cdi;
 
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import jakarta.persistence.TypedQuery;
 
-import java.io.IOException;
 import java.io.Serializable;
+import java.util.Optional;
+
+import es.daw.web.entities.User;
+import es.daw.web.exceptions.JPAException;
+import es.daw.web.repositories.CrudRepositoryUser;
 
 //import es.daw.web.entities.User;
 
 @Named("loginBean")
 @SessionScoped
 public class LoginBean implements Serializable {
+    // ATRIBUTOS (CAMPOS FORMULARIO)
     private String username;
     private String password;
+    
+    // VARIABLES
     private boolean isAdmin;
 
+    @Inject
+    //CrudRepository<User> repoUser;
+    CrudRepositoryUser repoUser;
+
+
+    // CONSTRUCTOR VACÍO
+
+    // GETTERS & SETTERS
     public String getUsername() {
         return username;
     }
@@ -37,6 +53,9 @@ public class LoginBean implements Serializable {
         return isAdmin;
     }
 
+
+    // MÉTODOS DE COMPORTAMIENTO ..............
+
     /**
      * Establece si el usuario es administrador y redirige al usuario a la página
      * main.xhtml si la validación es correcta
@@ -51,11 +70,58 @@ public class LoginBean implements Serializable {
      */
     public String login() {
         System.out.println("*********** LOGIN ************");
+
         if (validateInputs()) {
 
-            // CAMBIAR ESTO POR EL ACCESO A DATOS...
-            if (username.equalsIgnoreCase("admin"))
-                isAdmin = true;            
+            try{
+                // 1. Verificar si el usuario existe
+                User user = new User();
+                user.setUsername(username);
+
+                Optional<User> optUser = repoUser.selectByPropiedad(user);
+
+                if (optUser.isEmpty()) {
+                    System.out.println("****** NO EXISTE EL USER EN EL SISTEMA ******");
+                    throw new JPAException("El usuario <"+username+"> no existe en el sistema.");
+                }
+
+                // 2. Verificar que la contraseña coincida.
+                // FORMA 1
+                // user.setPassword(password);
+                // optUser = repoUser.selectByPropiedad(user);
+                // if (optUser.isEmpty()) {
+                //     System.out.println("****** LA PWD NO ES CORRECTA ******");
+                //     throw new JPAException("La contraseña <"+password+"> no es correcta.");
+                // }
+
+                if (!optUser.get().getPassword().equals(password)){
+                    System.out.println("****** LA PWD NO ES CORRECTA ******");
+                    throw new JPAException("La contraseña <"+password+"> no es correcta.");
+                }
+
+                // 3. Verificar si el usuario tiene el rol adecuado (admin o cliente) en la tabla
+                //isAdmin = repoUser.isAdmin(user);
+                isAdmin = optUser.get().getRoles().stream()
+                                        .filter(r -> r.getRoleName().equalsIgnoreCase("ADMIN"))
+                                        .findAny()
+                                        .isPresent();
+
+                //isAdmin = repoUser.isAdmin(user);
+                                        
+                
+
+            }catch(JPAException e){
+                System.out.println("****** JPAEXCEPTION ******");
+                System.out.println(e.getMessage());
+                System.out.println("****************************");
+
+                // Capturamos la excepción y mostramos un mensaje de error en la interfaz
+                FacesContext.getCurrentInstance().addMessage(null, 
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error de inicio de sesión", " - "+e.getMessage())); 
+
+                return null; //mantenerse en la página
+                
+            }
 
 
             // Redirigimos a la página principal
@@ -66,6 +132,7 @@ public class LoginBean implements Serializable {
         }
         return null; // Permanece en la misma página si falla la validación
     }
+
 
     // public void logout() throws IOException{
     //     System.out.println("**************** Cerrando sessión.....");
