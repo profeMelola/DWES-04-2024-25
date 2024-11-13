@@ -7,6 +7,8 @@ Incluimos en nuestro aprendizaje:
 
 Además con este ejercicio, repasarás asociaciones ya vistas previamente.
 
+Crearemos las tablas y relaciones entre ellas. No vamos a persistir información.
+
 El diagrama de entidades(tablas) y relaciones de la base de datos es este:
 
 ![image](https://github.com/user-attachments/assets/782663be-aafb-4caa-9a03-3d4aa99fb46e)
