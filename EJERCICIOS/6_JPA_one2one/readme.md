@@ -7,7 +7,7 @@ Incluimos en nuestro aprendizaje:
 
 Además con este ejercicio, repasarás asociaciones ya vistas previamente.
 
-Crearemos las tablas y relaciones entre ellas. En una primera fase no vamos a persistir información.
+Crearemos las tablas y relaciones entre ellas. En una primera fase no vamos a persistir información, aunque haremos una prueba parcial de dar de alta un usuario con dos direcciones asociadas.
 
 El diagrama de entidades(tablas) y relaciones de la base de datos es este:
 
@@ -95,3 +95,5 @@ En caso contrario, que simplemente devuelva el mensaje ""La estructura de tablas
 ## Proyecto inicial: jpa_one2one
 
 Se adjunta el proyecto web inicial que completar.
+
+# FASE II : ampliar el ejercicio anterior para persistir información en todas las tablas.....
