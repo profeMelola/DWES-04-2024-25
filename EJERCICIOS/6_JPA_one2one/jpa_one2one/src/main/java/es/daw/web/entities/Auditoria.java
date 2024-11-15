@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @Embeddable
 public class Auditoria {
 
+    // @Temporal annotation is not needed for the new java.time
     @Column(name = "creado_en")
     private LocalDateTime creadoEn;
 
@@ -22,13 +23,13 @@ public class Auditoria {
 
     @PrePersist
     public void prePersist() {
-        System.out.println("inicializar algo justo antes del persist");
+        System.out.println("************* inicializar algo justo antes del persist");
         this.creadoEn = LocalDateTime.now();
     }
 
     @PreUpdate
     public void preUpdate() {
-        System.out.println("inicializar algo justo antes del update");
+        System.out.println("*************** inicializar algo justo antes del update");
         this.editadoEn = LocalDateTime.now();
     }
 
