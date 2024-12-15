@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Listado productos</title>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/bootstrap.min.css" />
+</head>
+<body class="container mt-4">
+
+   
+    <h1>Listado de todos los productos</h1>
+
+    <h2>todo[#{param.todos}]</h2>
+    <h2>¿Es igual a 'yes'? #{param.todos eq 'yes'}</h2>
+    <h2>¿Está vacío? #{empty param.todos}</h2>
+    <h2>Es admin: #{loginBean.isAdmin()}</h2>
+
+    <h:panelGroup rendered="#{empty param.todos or param.todos eq 'no'}">
+        <h1>Listado de productos con precio > 35</h1>
+    </h:panelGroup>
+
+    <h1 rendered="#{param.todos eq 'yes'}">Listado de todos los productos</h1>
+
+    <h:dataTable value="#{param.todos eq 'yes'?productoBean.productosAll:productoBean.productos}" var="producto" styleClass="table table-striped table-bordered mt-3"
+    headerClass="table-primary" rowClasses="table-light,table-white">
+
+        <h:column>
+            <f:facet name="header">Id</f:facet>
+            #{producto.id}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">SKU</f:facet>
+            #{producto.sku}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Nombre</f:facet>
+            #{producto.nombre}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Precio</f:facet>
+            #{producto.precio}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Categoría</f:facet>
+            #{producto.categoria.nombre}
+        </h:column>
+
+            <h:column rendered="#{loginBean.isAdmin()}">
+                <f:facet name="header"></f:facet>
+                
+                <h:form>
+                    <h:commandButton value="Modificar" action="#{productoBean.mostrarFormularioUpdate(producto.id)}" />
+                </h:form>               
+            </h:column>
+
+            <h:column rendered="#{loginBean.isAdmin()}">
+                <f:facet name="header"></f:facet>
+                
+                <h:form>
+                    <h:commandButton value="Borrar" action="#{productoBean.borrar(producto.id)}" />
+                </h:form>               
+
+            </h:column>
+
+
+    </h:dataTable>
+
+
+    <a href="#{request.contextPath}/index.html" class="btn btn-secondary mt-4">Volver al inicio del examen</a>
+
+</body>
+</html>
