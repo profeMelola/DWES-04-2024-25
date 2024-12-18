@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+    <title>Error</title>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 80vh;
+            margin: 0px auto;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: red;
+            text-align: center;
+            margin-bottom: 20px;
+        }   
+        
+        /* Estilo para el enlace como botón */
+        a {
+            display: inline-block;
+            background-color: blue;
+            color: white; /* Texto blanco */
+            padding: 12px 30px; /* Espaciado interno */
+            font-size: 1.1em; /* Tamaño de fuente más grande */
+            border-radius: 8px; /* Bordes redondeados */
+            text-decoration: none; /* Eliminar subrayado */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        }
+
+        /* Efecto cuando el ratón pasa sobre el enlace (hover) */
+        a:hover {
+            background-color: blue; /* Cambia a verde más oscuro */
+            transform: translateY(-3px); /* Levanta el botón un poco */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- Mostrar el mensaje de error desde el CDI Bean -->
+    <h1>#{productoBean.descripcionOperacion}</h1>
+
+    <h4>
+        #{productoBean.mensajeError}
+    </h4>
+
+    <!-- Enlace para volver al inicio -->
+    <p>
+        <a href="index.html">Volver a la página principal</a>
+    </p>
+</body>
+</html>

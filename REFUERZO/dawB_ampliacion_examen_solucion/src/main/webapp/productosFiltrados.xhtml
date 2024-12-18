@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Listado productos</title>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/bootstrap.min.css" />
+</head>
+<body class="container mt-4">
+
+
+
+    <h1>Listado de todos los productos filtrados por categoría</h1>
+    
+    <h:dataTable value="#{productoBean.productosFiltrados}" var="producto" styleClass="table table-striped table-bordered mt-3"
+    headerClass="table-primary" rowClasses="table-light,table-white">
+
+        <h:column>
+            <f:facet name="header">Id</f:facet>
+            #{producto.id}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">SKU</f:facet>
+            #{producto.sku}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Nombre</f:facet>
+            #{producto.nombre}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Precio</f:facet>
+            #{producto.precio}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Categoría</f:facet>
+            #{producto.categoria.nombre}
+        </h:column>
+
+
+    </h:dataTable>
+
+
+    <a href="#{request.contextPath}/index.html" class="btn btn-secondary mt-4">Volver al inicio del examen</a>
+
+</body>
+</html>

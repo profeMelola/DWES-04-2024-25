@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Update producto</title>
+    <style>
+        /* Estilos generales de página */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+
+        /* Contenedor del formulario */
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Título del formulario */
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Estilos de etiqueta y campo */
+        .form-container label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        /* Efecto hover y focus */
+        .form-container input[type="text"]:focus,
+        .form-container input[type="password"]:focus {
+            border-color: #5c9aed;
+            outline: none;
+        }
+
+        /* Botón de login */
+        .form-container input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #5c9aed;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #4a86d0;
+        }
+
+        /* Estilo para el enlace */
+        .link-boton {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #5c9aed;
+            /* Color de fondo azul */
+            color: white;
+            /* Color del texto */
+            text-decoration: none;
+            /* Quita el subrayado */
+            border-radius: 5px;
+            /* Bordes redondeados */
+            font-weight: bold;
+            /* Texto en negrita */
+            transition: background-color 0.3s;
+            /* Transición suave */
+        }
+
+        .link-boton:hover {
+            background-color: antiquewhite;
+            /* Color de fondo al pasar el mouse */
+        }
+    
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+    
+    </style>
+
+</head>
+<body>
+    <div class="form-container">
+        <h1>Formulario de actualización de un producto:</h1>
+
+        <h:messages styleClass="error-message" showSummary="true" showDetail="true" />
+
+        <h:form>
+                <label for="idProd" class="form-label">Id:</label>
+
+                <h:inputText id="idProd" value="#{productoBean.id}" size="25" disabled="true"/>
+
+                <h:inputHidden id="id" value="#{productoBean.id}"/>
+
+                <label for="nombreProd" class="form-label">Nombre:</label>
+                <h:inputText id="nombreProd" value="#{productoBean.nombre}" size="25" />
+
+                <label for="precioProd" class="form-label">Precio:</label>
+                <h:inputText id="precioProd" value="#{productoBean.precio}" size="25" />
+
+                <label for="skuProd" class="form-label">SKU:</label>
+                <h:inputText id="skuProd" value="#{productoBean.sku}" size="25" />
+
+                
+                <!-- PENDIENTE LA CATEGORÍA -->
+                 <!-- HABRÍA QUE MONTAR UNA LISTA h:selectOnMenu-->
+                 <label for="codigo_categoria" class="form-label">Categoria:</label>
+                 <h:selectOneMenu id="codigo_categoria" name="codigo_categoria" value="#{productoBean.idCategoria}">
+                    <f:selectItems value="#{productoBean.categorias}" var="categoria" 
+                        itemValue="#{categoria.id}"
+                        itemLabel="#{categoria.nombre}" />
+                </h:selectOneMenu>
+
+
+                <h:commandButton value="Modificar un producto" action="#{productoBean.update}"/>
+
+        </h:form>
+
+
+        
+        <p style="text-align: center;">
+            <h:outputLink value="#{request.contextPath}/index.html" styleClass="link-boton">Volver al inicio del examen</h:outputLink>
+        </p>
+
+    </div>
+
+</body>
+</html>
